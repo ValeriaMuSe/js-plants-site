@@ -1,7 +1,7 @@
 
 // getPlants.js
 import plantData from './config.js';
-import Plants from './plants.js'; // Importación predeterminada
+import Plants from './plants.js'; 
 
 export function getPlants(formData) {
   let plantType;

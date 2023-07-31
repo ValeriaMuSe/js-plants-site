@@ -48,7 +48,7 @@ import './config.js'
 
 
  // plants.js
-export default class Plants {
+class Plants {
     constructor() {
       this.name = '';
       this.soilType = '';
@@ -89,3 +89,4 @@ export default class Plants {
     }
   }
   
+  export default Plants;
