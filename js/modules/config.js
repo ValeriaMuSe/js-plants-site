@@ -51,7 +51,8 @@
 
 // config.js
 
-// Definimos las plantas y sus características
+
+
 const plantData = {
   "Low Light Plants": [
     { name: "Sansevieria", soilType: "Toxic", potMaterial: "Clay", potStyle: "Simple", potColor: "Material", extras: [] },
@@ -68,3 +69,4 @@ const plantData = {
 };
 
 export default plantData;
+

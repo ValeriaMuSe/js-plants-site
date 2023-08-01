@@ -1,10 +1,10 @@
 
-import { getPlants } from './modules/getPlants.js';
 
+import { getPlants } from './getPlants.js';
+import Plants from './plants.js'; 
 
-document.querySelector('.submit-btn').addEventListener('click', () => {
-  // Aquí obtendríamos las respuestas del formulario, por ejemplo, en un objeto formData.
-  // Por simplicidad, utilizamos un objeto de ejemplo:
+document.querySelector('.get-btn').addEventListener('click', () => {
+  
   const formData = {
     "WhereToPlace": "Inside with some indirect light",
     "Sunlight": "No",
@@ -14,10 +14,10 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
     "Extras": ["Moss pole", "Pebbles"],
   };
 
-  // Obtenemos la planta según las respuestas del formulario
+  
   const plants = getPlants(formData);
 
-  // Mostramos la información de la planta en el DOM
+  
   const plantInfoContainer = document.querySelector('.plant-info');
   plantInfoContainer.innerHTML = '';
 
@@ -36,6 +36,7 @@ document.querySelector('.clear-btn').addEventListener('click', () => {
   plantInfoContainer.style.display = 'none';
 });
 
+
 function createPlantInfoCard(plant) {
   const card = document.createElement('div');
   card.classList.add('plant-card');
@@ -48,7 +49,7 @@ function createPlantInfoCard(plant) {
   imageContainer.classList.add('image-container');
 
   const plantImage = document.createElement('img');
-  plantImage.src = plant.image; // Replace 'image' with the correct property name in your 'getPlants' function that contains the plant image URL.
+  plantImage.src = plant.image;
   plantImage.alt = plant.name;
   imageContainer.appendChild(plantImage);
 
@@ -66,3 +67,5 @@ function createPlantInfoCard(plant) {
 }
 
 export default createPlantInfoCard;
+
+
