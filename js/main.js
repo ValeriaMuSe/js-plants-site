@@ -1,13 +1,6 @@
 
-// import Plants from './modules/plants.js'
 
-
-// import createPlantInfoCard from './modules/renderPlants.js'
-
-
-
-
-//funciona solo en main no en modulos 
+//Este codigo es funcional pero en main de aqui se puede sacar la version funcional para el sitio 
 // // Define the PlantRecommendationBuilder using the Builder pattern
 // class PlantRecommendationBuilder {
 //   constructor() {
@@ -142,99 +135,156 @@
 // clearBtn.addEventListener("click", clearForm);
 
 
-///este es un posible codigo!
-import { getPlants } from './modules/getPlants.js';
-import createPlantInfoCard from './modules/renderPlants.js';
-import Plants from './modules/plants.js'; // Asegúrate de que la ruta sea correcta
+// ///este es un posible codigo!
+// import { getPlants } from './modules/getPlants.js';
+// import createPlantInfoCard from './modules/renderPlants.js';
+// import Plants from './modules/plants.js'; // Asegúrate de que la ruta sea correcta
 
-document.querySelector('.get-btn').addEventListener('click', (event) => {
-  event.preventDefault(); // Evita que el formulario se envíe
-  const formData = {
-    "WhereToPlace": getSelectedRadioValue('placeForm'),
-    "Sunlight": getSelectedRadioValue('sunlightForm'),
-    "Pets": getSelectedRadioValue('petsForm'),
-    "WateringHabits": getSelectedRadioValue('waterForm'),
-    "Style": getSelectedRadioValue('styleForm'),
-    "Extras": getSelectedCheckboxesValues('extrasForm'),
-  };
+// document.querySelector('.get-btn').addEventListener('click', (event) => {
+//   event.preventDefault(); // Evita que el formulario se envíe
+//   const formData = {
+//     "WhereToPlace": getSelectedRadioValue('placeForm'),
+//     "Sunlight": getSelectedRadioValue('sunlightForm'),
+//     "Pets": getSelectedRadioValue('petsForm'),
+//     "WateringHabits": getSelectedRadioValue('waterForm'),
+//     "Style": getSelectedRadioValue('styleForm'),
+//     "Extras": getSelectedCheckboxesValues('extrasForm'),
+//   };
 
-  const recommendedPlant = getRecommendedPlant(formData);
-  if (recommendedPlant) {
-    displayRecommendation(recommendedPlant);
-  } else {
-    displayErrorMessage();
+//   const recommendedPlant = getRecommendedPlant(formData);
+//   if (recommendedPlant) {
+//     displayRecommendation(recommendedPlant);
+//   } else {
+//     displayErrorMessage();
+//   }
+// });
+
+// document.querySelector('.clear-btn').addEventListener('click', (event) => {
+//   event.preventDefault(); // Evita que el formulario se envíe
+//   const plantInfoContainer = document.querySelector('.plant-info');
+//   plantInfoContainer.innerHTML = '';
+//   plantInfoContainer.style.display = 'none';
+//   clearForm();
+// });
+
+// // Función para obtener el valor seleccionado en un conjunto de radio buttons
+// function getSelectedRadioValue(formId) {
+//   const form = document.getElementById(formId);
+//   const selectedOption = form.querySelector('input:checked');
+//   return selectedOption ? selectedOption.value : null;
+// }
+
+// // Función para obtener los valores seleccionados en un conjunto de checkboxes
+// function getSelectedCheckboxesValues(formId) {
+//   const form = document.getElementById(formId);
+//   const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+//   return Array.from(checkboxes).map((checkbox) => checkbox.value);
+// }
+
+// // Function to get the recommended plant based on user selections
+// function getRecommendedPlant(formData) {
+//   // Implement your logic to determine the recommended plant based on user selections
+//   // For demonstration purposes, we'll return some example plant data
+//   const recommendedPlantData = {
+//     name: "Recommended Plant",
+//     soil: "Recommended Soil Type",
+//     pot: "Clay Pot",
+//     color: "Blue",
+//     extras: ["Moss pole", "Pebbles"],
+//   };
+//   return new Plants().setName(recommendedPlantData.name)
+//     .setSoilType(recommendedPlantData.soil)
+//     .setPotMaterial("Clay")
+//     .setPotStyle("Simple")
+//     .setPotColor(recommendedPlantData.color)
+//     .addExtra(...recommendedPlantData.extras);
+// }
+
+// // Function to display the plant recommendation on the page
+// function displayRecommendation(recommendation) {
+//   const plantInfo = document.querySelector(".plant-info");
+//   plantInfo.innerHTML = `
+//     <h2>${recommendation.name}</h2>
+//     <img src="./images/mini-plants.png" alt="Plant Image">
+//     <p>Soil: ${recommendation.soil}</p>
+//     <p>Pot: ${recommendation.pot}</p>
+//     <p>Color: ${recommendation.color}</p>
+//     <p>Extras: ${recommendation.extras.join(", ")}</p>
+//   `;
+
+//   // Mostramos el contenedor con la información de la planta
+//   plantInfo.style.display = 'block';
+// }
+
+// // Function to display an error message if no recommendation is found
+// function displayErrorMessage() {
+//   const plantInfo = document.querySelector(".plant-info");
+//   plantInfo.innerHTML = "<p>No plant recommendation found for these selections.</p>";
+
+//   // Mostramos el contenedor con el mensaje de error
+//   plantInfo.style.display = 'block';
+// }
+
+// // Function to clear the form selections
+// function clearForm() {
+//   const formElements = document.querySelectorAll("form");
+//   formElements.forEach((form) => form.reset());
+// }
+
+
+
+// main.js
+import config from './modules/config.js';
+import PlantRecommendationBuilder from './modules/plants.js';
+import { getRecommendedPlantName, getRecommendedSoilType, getRecommendedPotMaterial, getRecommendedPotColor } from './modules/getPlants.js';
+import { displayRecommendation } from './modules/renderPlants.js';
+
+function getPlantRecommendation() {
+  const placeForm = document.getElementById(config.placeFormId);
+  const sunlightForm = document.getElementById(config.sunlightFormId);
+  const petsForm = document.getElementById(config.petsFormId);
+  const waterForm = document.getElementById(config.waterFormId);
+  const styleForm = document.getElementById(config.styleFormId);
+  const extrasForm = document.getElementById(config.extrasFormId);
+
+  // Get user's selections
+  const placeSelection = placeForm.querySelector('input[name="place"]:checked');
+  const sunlightSelection = sunlightForm.querySelector('input[name="sunlight"]:checked');
+  const petsSelection = petsForm.querySelector('input[name="pets"]:checked');
+  const waterSelection = waterForm.querySelector('input[name="water"]:checked');
+  const styleSelection = styleForm.querySelector('input[name="style"]:checked');
+  const extrasSelections = Array.from(extrasForm.querySelectorAll('input[name="extras"]:checked')).map((el) => el.value);
+
+  // Check if all selections are valid
+  if (!placeSelection || !sunlightSelection || !petsSelection || !waterSelection || !styleSelection) {
+    // Handle error or show a message to the user
+    console.error("Please make sure all selections are made.");
+    return;
   }
-});
 
-document.querySelector('.clear-btn').addEventListener('click', (event) => {
-  event.preventDefault(); // Evita que el formulario se envíe
-  const plantInfoContainer = document.querySelector('.plant-info');
-  plantInfoContainer.innerHTML = '';
-  plantInfoContainer.style.display = 'none';
-  clearForm();
-});
+  // Create the recommendation using the Builder pattern
+  const recommendation = new PlantRecommendationBuilder()
+    .withPlantName(getRecommendedPlantName(placeSelection.value, sunlightSelection.value, petsSelection.value, waterSelection.value, styleSelection.value))
+    .withSoilType(getRecommendedSoilType(placeSelection.value, sunlightSelection.value))
+    .withPotMaterial(getRecommendedPotMaterial(styleSelection.value))
+    .withPotColor(getRecommendedPotColor(styleSelection.value))
+    .withExtras(extrasSelections)
+    .build();
 
-// Función para obtener el valor seleccionado en un conjunto de radio buttons
-function getSelectedRadioValue(formId) {
-  const form = document.getElementById(formId);
-  const selectedOption = form.querySelector('input:checked');
-  return selectedOption ? selectedOption.value : null;
+  // Display the recommendation on the page
+  displayRecommendation(recommendation);
 }
 
-// Función para obtener los valores seleccionados en un conjunto de checkboxes
-function getSelectedCheckboxesValues(formId) {
-  const form = document.getElementById(formId);
-  const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
-  return Array.from(checkboxes).map((checkbox) => checkbox.value);
-}
-
-// Function to get the recommended plant based on user selections
-function getRecommendedPlant(formData) {
-  // Implement your logic to determine the recommended plant based on user selections
-  // For demonstration purposes, we'll return some example plant data
-  const recommendedPlantData = {
-    name: "Recommended Plant",
-    soil: "Recommended Soil Type",
-    pot: "Clay Pot",
-    color: "Blue",
-    extras: ["Moss pole", "Pebbles"],
-  };
-  return new Plants().setName(recommendedPlantData.name)
-    .setSoilType(recommendedPlantData.soil)
-    .setPotMaterial("Clay")
-    .setPotStyle("Simple")
-    .setPotColor(recommendedPlantData.color)
-    .addExtra(...recommendedPlantData.extras);
-}
-
-// Function to display the plant recommendation on the page
-function displayRecommendation(recommendation) {
-  const plantInfo = document.querySelector(".plant-info");
-  plantInfo.innerHTML = `
-    <h2>${recommendation.name}</h2>
-    <img src="./images/mini-plants.png" alt="Plant Image">
-    <p>Soil: ${recommendation.soil}</p>
-    <p>Pot: ${recommendation.pot}</p>
-    <p>Color: ${recommendation.color}</p>
-    <p>Extras: ${recommendation.extras.join(", ")}</p>
-  `;
-
-  // Mostramos el contenedor con la información de la planta
-  plantInfo.style.display = 'block';
-}
-
-// Function to display an error message if no recommendation is found
-function displayErrorMessage() {
-  const plantInfo = document.querySelector(".plant-info");
-  plantInfo.innerHTML = "<p>No plant recommendation found for these selections.</p>";
-
-  // Mostramos el contenedor con el mensaje de error
-  plantInfo.style.display = 'block';
-}
-
-// Function to clear the form selections
 function clearForm() {
   const formElements = document.querySelectorAll("form");
   formElements.forEach((form) => form.reset());
+  const plantInfo = document.querySelector(".plant-info");
+  plantInfo.innerHTML = "";
 }
 
+// Attach event listeners to the buttons
+const getBtn = document.querySelector(".get-btn");
+getBtn.addEventListener("click", getPlantRecommendation);
+
+const clearBtn = document.querySelector(".clear-btn");
+clearBtn.addEventListener("click", clearForm);

@@ -1,96 +1,49 @@
 import './config.js'
 
-// class Plants {
-//     constructor() {
-//       this.name = '';
-//       this.soilType = '';
-//       this.potMaterial = '';
-//       this.potStyle = '';
-//       this.potColor = '';
-//       this.extras = [];
-//     }
-  
-//     setName(name) {
-//       this.name = name;
-//       return this;
-//     }
-  
-//     setSoilType(soilType) {
-//       this.soilType = soilType;
-//       return this;
-//     }
-  
-//     setPotMaterial(potMaterial) {
-//       this.potMaterial = potMaterial;
-//       return this;
-//     }
-  
-//     setPotStyle(potStyle) {
-//       this.potStyle = potStyle;
-//       return this;
-//     }
-  
-//     setPotColor(potColor) {
-//       this.potColor = potColor;
-//       return this;
-//     }
-//     setImage(image) {
-//       this.image = image;
-//       return this;
-//     }
-
-  
-//     addExtra(extra) {
-//       this.extras.push(extra);
-//       return this;
-//     }
-//   }
-  
-//   export default Plants;
 
 
-class Plants {
+// plants.js
+class PlantRecommendationBuilder {
   constructor() {
-    this.name = '';
-    this.soilType = '';
-    this.potMaterial = '';
-    this.potStyle = '';
-    this.potColor = '';
-    this.extras = [];
+    this.recommendation = {};
   }
 
-  setName(name) {
-    this.name = name;
+  // Set the name of the plant
+  withPlantName(name) {
+    this.recommendation.name = name;
     return this;
   }
 
-  setSoilType(soilType) {
-    this.soilType = soilType;
+  // Set the type of soil
+  withSoilType(soilType) {
+    this.recommendation.soil = soilType;
     return this;
   }
 
-  setPotMaterial(potMaterial) {
-    this.potMaterial = potMaterial;
+  // Set the material and style of the pot
+  withPotMaterial(material, style) {
+    this.recommendation.pot = `${material} pot with ${style} decorations`;
     return this;
   }
 
-  setPotStyle(potStyle) {
-    this.potStyle = potStyle;
+  // Set the color of the pot
+  withPotColor(color) {
+    this.recommendation.color = color;
     return this;
   }
 
-  setPotColor(potColor) {
-    this.potColor = potColor;
+  // Add extras to the recommendation (moss pole, mini plants, pebbles)
+  withExtras(extras) {
+    this.recommendation.extras = extras;
     return this;
   }
 
-  addExtra(extra) {
-    this.extras.push(extra);
-    return this;
+  // Build the final recommendation object
+  build() {
+    return this.recommendation;
   }
 }
 
-export default Plants;
-
+export default PlantRecommendationBuilder;
 
 

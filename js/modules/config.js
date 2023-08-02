@@ -53,20 +53,34 @@
 
 
 
-const plantData = {
-  "Low Light Plants": [
-    { name: "Sansevieria", soilType: "Toxic", potMaterial: "Clay", potStyle: "Simple", potColor: "Material", extras: [] },
-    { name: "Boston Fern", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-  ],
-  "Medium Light Plants": [
-    { name: "Aglaonema", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-    { name: "Monstera", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-  ],
-  "Outdoor Plants": [
-    { name: "Aloe Vera", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-    { name: "Cactus", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-  ],
+// const config = {
+//   "Low Light Plants": [
+//     { name: "Sansevieria", soilType: "Toxic", potMaterial: "Clay", potStyle: "Simple", potColor: "Material", extras: [] },
+//     { name: "Boston Fern", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
+//   ],
+//   "Medium Light Plants": [
+//     { name: "Aglaonema", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
+//     { name: "Monstera", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
+//   ],
+//   "Outdoor Plants": [
+//     { name: "Aloe Vera", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
+//     { name: "Cactus", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
+//   ],
+// };
+
+// export default plantData;
+
+
+// config.js
+const config = {
+  placeFormId: "placeForm",
+  sunlightFormId: "sunlightForm",
+  petsFormId: "petsForm",
+  waterFormId: "waterForm",
+  styleFormId: "styleForm",
+  extrasFormId: "extrasForm",
 };
 
-export default plantData;
+export default config;
+
 
