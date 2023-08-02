@@ -1,6 +1,6 @@
 
 
-//Este codigo es funcional pero en main de aqui se puede sacar la version funcional para el sitio 
+// Este codigo es funcional pero en main de aqui se puede sacar la version funcional para el sitio 
 // // Define the PlantRecommendationBuilder using the Builder pattern
 // class PlantRecommendationBuilder {
 //   constructor() {
@@ -237,7 +237,7 @@
 import config from './modules/config.js';
 import PlantRecommendationBuilder from './modules/plants.js';
 import { getRecommendedPlantName, getRecommendedSoilType, getRecommendedPotMaterial, getRecommendedPotColor } from './modules/getPlants.js';
-import { displayRecommendation } from './modules/renderPlants.js';
+import displayRecommendation  from './modules/renderPlants.js';
 
 function getPlantRecommendation() {
   const placeForm = document.getElementById(config.placeFormId);
@@ -258,7 +258,6 @@ function getPlantRecommendation() {
   // Check if all selections are valid
   if (!placeSelection || !sunlightSelection || !petsSelection || !waterSelection || !styleSelection) {
     // Handle error or show a message to the user
-    console.error("Please make sure all selections are made.");
     return;
   }
 

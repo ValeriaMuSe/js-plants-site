@@ -1,7 +1,7 @@
 
 
 // renderPlants.js
-export function displayRecommendation(recommendation) {
+function displayRecommendation(recommendation) {
   const plantInfo = document.querySelector(".plant-info");
   plantInfo.innerHTML = `
     <h2>${recommendation.name}</h2>
@@ -14,3 +14,4 @@ export function displayRecommendation(recommendation) {
 }
 
 
+export default displayRecommendation
