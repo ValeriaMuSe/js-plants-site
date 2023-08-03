@@ -83,8 +83,10 @@ function getPlantName(placeSelection, petsSelection, waterSelection){
   return plantName;
 }
 
-
 export function getRecommendedPlantName(placeSelection, sunlightSelection, petsSelection, waterSelection, styleSelection) {
+  if (waterSelection === "Overwater") {
+    return "Peace Lily";
+  } 
   return getPlantName(placeSelection, petsSelection, waterSelection);
 }
 
