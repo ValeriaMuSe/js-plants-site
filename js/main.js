@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 
 // Este codigo es funcional pero en main de aqui se puede sacar la version funcional para el sitio 
@@ -236,7 +237,7 @@
 // main.js
 import config from './modules/config.js';
 import PlantRecommendationBuilder from './modules/plants.js';
-import { getRecommendedPlantName, getRecommendedSoilType, getRecommendedPotMaterial, getRecommendedPotColor } from './modules/getPlants.js';
+import { getRecommendedPlantName, getRecommendedSoilType, getRecommendedPotMaterial } from './modules/getPlants.js';
 import displayRecommendation  from './modules/renderPlants.js';
 
 function getPlantRecommendation() {
@@ -249,11 +250,23 @@ function getPlantRecommendation() {
 
   // Get user's selections
   const placeSelection = placeForm.querySelector('input[name="place"]:checked');
+  console.log('placeSelection:', placeSelection ? placeSelection.value : 'No selection');
+  
   const sunlightSelection = sunlightForm.querySelector('input[name="sunlight"]:checked');
+  console.log('sunlightSelection:', sunlightSelection ? sunlightSelection.value : 'No selection');
+  
   const petsSelection = petsForm.querySelector('input[name="pets"]:checked');
+  console.log('petsSelection:', petsSelection ? petsSelection.value : 'No selection');
+  
   const waterSelection = waterForm.querySelector('input[name="water"]:checked');
+  console.log('waterSelection:', waterSelection ? waterSelection.value : 'No selection');
+  
   const styleSelection = styleForm.querySelector('input[name="style"]:checked');
+  console.log('styleSelection:', styleSelection ? styleSelection.value : 'No selection');
+  
   const extrasSelections = Array.from(extrasForm.querySelectorAll('input[name="extras"]:checked')).map((el) => el.value);
+  console.log('extrasSelections:', extrasSelections.length > 0 ? extrasSelections : 'No selection');
+  
 
   // Check if all selections are valid
   if (!placeSelection || !sunlightSelection || !petsSelection || !waterSelection || !styleSelection) {
@@ -261,17 +274,33 @@ function getPlantRecommendation() {
     return;
   }
 
-  // Create the recommendation using the Builder pattern
+  // // Create the recommendation using the Builder pattern
+  // const recommendation = new PlantRecommendationBuilder()
+  //   .withPlantName(getRecommendedPlantName(placeSelection.value, sunlightSelection.value, petsSelection.value, waterSelection.value, styleSelection.value))
+  //   .withSoilType(getRecommendedSoilType(placeSelection.value, sunlightSelection.value))
+  //   .withPotMaterial(getRecommendedPotMaterial(styleSelection.value))
+  //   // .withPotColor(getRecommendedPotColor(styleSelection.value))
+  //   .withExtras(extrasSelections)
+  //   .build();
+
+  // // Display the recommendation on the page
+  // displayRecommendation(recommendation);
+
+  const recommendedPlantName = getRecommendedPlantName(placeSelection.value, sunlightSelection.value, petsSelection.value, waterSelection.value, styleSelection.value);
+  
+  console.log('recommendedPlantName:', recommendedPlantName);  // Add this line to debug the plant name.
+  
   const recommendation = new PlantRecommendationBuilder()
-    .withPlantName(getRecommendedPlantName(placeSelection.value, sunlightSelection.value, petsSelection.value, waterSelection.value, styleSelection.value))
+    .withPlantName(recommendedPlantName)
     .withSoilType(getRecommendedSoilType(placeSelection.value, sunlightSelection.value))
     .withPotMaterial(getRecommendedPotMaterial(styleSelection.value))
-    .withPotColor(getRecommendedPotColor(styleSelection.value))
     .withExtras(extrasSelections)
     .build();
 
-  // Display the recommendation on the page
-  displayRecommendation(recommendation);
+   console.log('recommendation:', recommendation); // Add this line to debug the entire recommendation object.
+
+   // Display the recommendation on the page
+   displayRecommendation(recommendation);
 }
 
 function clearForm() {
