@@ -1,86 +1,22 @@
-// const plantConfig = [
-//   {
-//     light: 'low_light',
-//     plants: [
-//       {
-//         toxic: true,
-//         default: 'sansevieria',
-//         overwater: 'peace-lily',
-//       },
-//       {
-//         toxic: false,
-//         default: 'boston-fern',
-//         overwater: 'boston-fern',
-//       },
-//     ],
-//   },
-//   {
-//     light: 'medium_light',
-//     plants: [
-//       {
-//         toxic: true,
-//         default: 'aglaonema',
-//         overwater: 'peace-lily',
-//       },
-//       {
-//         toxic: false,
-//         default: 'monstera',
-//         overwater: 'peace-lily',
-//       },
-//     ],
-//   },
-//   {
-//     light: 'outdoor',
-//     plants: [
-//       {
-//         toxic: true,
-//         default: 'aloe-vera',
-//         overwater: 'aloe-vera',
-//       },
-//       {
-//         toxic: false,
-//         default: 'cactus',
-//         overwater: 'cactus',
-//       },
-//     ],
-//   },
-// ];
-
-// export default plantConfig;
-
-
-// config.js
 
 
 
-// const config = {
-//   "Low Light Plants": [
-//     { name: "Sansevieria", soilType: "Toxic", potMaterial: "Clay", potStyle: "Simple", potColor: "Material", extras: [] },
-//     { name: "Boston Fern", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-//   ],
-//   "Medium Light Plants": [
-//     { name: "Aglaonema", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-//     { name: "Monstera", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-//   ],
-//   "Outdoor Plants": [
-//     { name: "Aloe Vera", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-//     { name: "Cactus", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Material", extras: [] },
-//   ],
-// };
-
-// export default plantData;
-
-
-// config.js
-const config = {
-  placeFormId: "placeForm",
-  sunlightFormId: "sunlightForm",
-  petsFormId: "petsForm",
-  waterFormId: "waterForm",
-  styleFormId: "styleForm",
-  extrasFormId: "extrasForm",
+const plantData = {
+  "Low Light Plants": [
+    { name: "Sansevieria", soilType: "Toxic", potMaterial: "Clay", potStyle: "Simple", potColor: "Pink", extras: ['moss pole', 'Pebbles','Mini plants'] },
+    { name: "Boston Fern", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Yellow", extras: ['moss pole', 'Pebbles','Mini plants'] },
+  ],
+  "Medium Light Plants": [
+    { name: "Aglaonema", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Brown", extras: ['moss pole', 'Pebbles','Mini plants'] },
+    { name: "Monstera", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Blue", extras: ['moss pole', 'Pebbles','Mini plants'] },
+  ],
+  "Outdoor Plants": [
+    { name: "Aloe Vera", soilType: "Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Green", extras: ['moss pole', 'Pebbles','Mini plants'] },
+    { name: "Cactus", soilType: "Non-Toxic", potMaterial: "Ceramic", potStyle: "Simple", potColor: "Purple", extras: ['moss pole', 'Pebbles','Mini plants'] },
+  ],
 };
 
-export default config;
+export default plantData;
+
 
 

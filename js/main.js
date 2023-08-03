@@ -233,86 +233,68 @@
 // }
 
 
-
-// main.js
-import config from './modules/config.js';
 import PlantRecommendationBuilder from './modules/plants.js';
-import { getRecommendedPlantName, getRecommendedSoilType, getRecommendedPotMaterial } from './modules/getPlants.js';
-import displayRecommendation  from './modules/renderPlants.js';
+import displayRecommendation from './modules/renderPlants.js';
+import plantData from './modules/config.js';
+
+function getSelectedOption(formId) {
+  const form = document.getElementById(formId);
+  const selection = form.querySelector('input[type="radio"]:checked');
+  return selection ? selection.value : null;
+}
+
+function getRecommendedPlantType(place) {
+  if (place === "Inside with some indirect light") {
+    return "Low Light Plants";
+  } else if (place === "Inside with a lot of indirect light") {
+    return "Medium Light Plants";
+  } else if (place === "Outside") {
+    return "Outdoor Plants";
+  }
+  return "";
+}
 
 function getPlantRecommendation() {
-  const placeForm = document.getElementById(config.placeFormId);
-  const sunlightForm = document.getElementById(config.sunlightFormId);
-  const petsForm = document.getElementById(config.petsFormId);
-  const waterForm = document.getElementById(config.waterFormId);
-  const styleForm = document.getElementById(config.styleFormId);
-  const extrasForm = document.getElementById(config.extrasFormId);
+  const placeSelection = getSelectedOption("placeForm");
+  const sunlightSelection = getSelectedOption("sunlightForm");
+  const petsSelection = getSelectedOption("petsForm");
+  const waterSelection = getSelectedOption("waterForm");
+  const styleSelection = getSelectedOption("styleForm");
+  const extrasSelections = Array.from(document.querySelectorAll('input[name="extras"]:checked')).map(el => el.value);
 
-  // Get user's selections
-  const placeSelection = placeForm.querySelector('input[name="place"]:checked');
-  console.log('placeSelection:', placeSelection ? placeSelection.value : 'No selection');
-  
-  const sunlightSelection = sunlightForm.querySelector('input[name="sunlight"]:checked');
-  console.log('sunlightSelection:', sunlightSelection ? sunlightSelection.value : 'No selection');
-  
-  const petsSelection = petsForm.querySelector('input[name="pets"]:checked');
-  console.log('petsSelection:', petsSelection ? petsSelection.value : 'No selection');
-  
-  const waterSelection = waterForm.querySelector('input[name="water"]:checked');
-  console.log('waterSelection:', waterSelection ? waterSelection.value : 'No selection');
-  
-  const styleSelection = styleForm.querySelector('input[name="style"]:checked');
-  console.log('styleSelection:', styleSelection ? styleSelection.value : 'No selection');
-  
-  const extrasSelections = Array.from(extrasForm.querySelectorAll('input[name="extras"]:checked')).map((el) => el.value);
-  console.log('extrasSelections:', extrasSelections.length > 0 ? extrasSelections : 'No selection');
-  
-
-  // Check if all selections are valid
   if (!placeSelection || !sunlightSelection || !petsSelection || !waterSelection || !styleSelection) {
     // Handle error or show a message to the user
     return;
   }
 
-  // // Create the recommendation using the Builder pattern
-  // const recommendation = new PlantRecommendationBuilder()
-  //   .withPlantName(getRecommendedPlantName(placeSelection.value, sunlightSelection.value, petsSelection.value, waterSelection.value, styleSelection.value))
-  //   .withSoilType(getRecommendedSoilType(placeSelection.value, sunlightSelection.value))
-  //   .withPotMaterial(getRecommendedPotMaterial(styleSelection.value))
-  //   // .withPotColor(getRecommendedPotColor(styleSelection.value))
-  //   .withExtras(extrasSelections)
-  //   .build();
+  const recommendedPlantType = getRecommendedPlantType(placeSelection);
+  const recommendedPlants = plantData[recommendedPlantType];
 
-  // // Display the recommendation on the page
-  // displayRecommendation(recommendation);
+  const randomIndex = Math.floor(Math.random() * recommendedPlants.length);
+  const recommendedPlant = recommendedPlants[randomIndex];
 
-  const recommendedPlantName = getRecommendedPlantName(placeSelection.value, sunlightSelection.value, petsSelection.value, waterSelection.value, styleSelection.value);
-  
-  console.log('recommendedPlantName:', recommendedPlantName);  // Add this line to debug the plant name.
-  
   const recommendation = new PlantRecommendationBuilder()
-    .withPlantName(recommendedPlantName)
-    .withSoilType(getRecommendedSoilType(placeSelection.value, sunlightSelection.value))
-    .withPotMaterial(getRecommendedPotMaterial(styleSelection.value))
-    .withExtras(extrasSelections)
+    .withPlantName(recommendedPlant.name)
+    .withSoilType(recommendedPlant.soilType)
+    .withPotMaterial(`${recommendedPlant.potMaterial} pot with ${recommendedPlant.potStyle} decorations`)
+    .withPotColor(recommendedPlant.potColor)
+    .withExtras(recommendedPlant.extras)
     .build();
 
-   console.log('recommendation:', recommendation); // Add this line to debug the entire recommendation object.
-
-   // Display the recommendation on the page
-   displayRecommendation(recommendation);
+  displayRecommendation(recommendation);
 }
 
 function clearForm() {
   const formElements = document.querySelectorAll("form");
-  formElements.forEach((form) => form.reset());
+  formElements.forEach(form => form.reset());
   const plantInfo = document.querySelector(".plant-info");
   plantInfo.innerHTML = "";
 }
 
-// Attach event listeners to the buttons
 const getBtn = document.querySelector(".get-btn");
 getBtn.addEventListener("click", getPlantRecommendation);
 
 const clearBtn = document.querySelector(".clear-btn");
 clearBtn.addEventListener("click", clearForm);
+
+
