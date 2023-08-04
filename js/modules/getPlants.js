@@ -1,12 +1,12 @@
+/* eslint-disable default-case */
 
-function getPlantName(placeSelection, petsSelection, waterSelection){
+function getPlantName(placeSelection, petsSelection) {
   let plantName = "";
-  switch(placeSelection){
+
+  switch (placeSelection) {
     case "Inside with some indirect light":
       if (petsSelection === "Yes") {
         plantName = "Boston Fern";
-      } else if (waterSelection === "Overwater") {
-        plantName = "Peace Lily";
       } else {
         plantName = "Sansevieria";
       }
@@ -14,26 +14,32 @@ function getPlantName(placeSelection, petsSelection, waterSelection){
     case "Inside with a lot of indirect light":
       if (petsSelection === "Yes") {
         plantName = "Monstera";
-      } else if (waterSelection === "Overwater") {
-        plantName = "Peace Lily";
       } else {
         plantName = "Aglaonema";
       }
       break;
     case "Outside":
-      plantName = petsSelection === "Yes" ? "Cactus" : "Aloe vera";
+      if (petsSelection === "Yes") {
+        plantName = "Cactus";
+      } else {
+        plantName = "Aloe Vera";
+      }
+      break;
+    default:
+      console.log("Invalid placeSelection");
       break;
   }
 
   return plantName;
 }
 
-export function getRecommendedPlantName(placeSelection, petsSelection, waterSelection, ) {
+export function getRecommendedPlantName(placeSelection, sunlightSelection, petsSelection, waterSelection, styleSelection) {
   if (waterSelection === "Overwater") {
     return "Peace Lily";
-  } 
-  return getPlantName(placeSelection, petsSelection, waterSelection);
+  }
+  return getPlantName(placeSelection, petsSelection);
 }
+
 
 
 export function getRecommendedSoilType(sunlightSelection) {
