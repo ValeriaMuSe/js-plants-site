@@ -20,7 +20,7 @@ class PlantRecommendationBuilder {
 
   // Set the material and style of the pot
   withPotMaterial(material, style) {
-    this.recommendation.pot = `${material} pot with ${style} decorations`;
+    this.recommendation.pot = `${material} pot with  decorations`;
     return this;
   }
 

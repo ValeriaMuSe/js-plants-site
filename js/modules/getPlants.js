@@ -64,24 +64,22 @@ export function getRecommendedSoilType(sunlightSelection) {
 // return potMaterial;
 // }
 
-export function getRecommendedPotMaterial(waterSelection, styleSelection) {
-  let potMaterial = waterSelection !== "Overwater" ? "Ceramic pot" : "Clay pot";
-  let potDecorations = "";
-
-  switch (styleSelection) {
-    case "I like minimalism and material colors":
-      potDecorations = "Simple pot";
-      break;
-    case "I like some decoration and simple colors":
-      potDecorations = "Simple pot decorated";
-      break;
-    case "I like a lot of decoration and bright colors":
-      potDecorations = "Painted pot decorated";
-      break;
+export function getRecommendedPotMaterial(waterSelection, styleSelection,) {
+  let potMaterial = waterSelection !== "Overwater" ? "Ceramic " : "Clay ";
+  let potDecorations = styleSelection ;
+ 
+  if (styleSelection === "I like minimalism and material colors") {
+    potDecorations = "Simple pot";
+  } else if (styleSelection === "I like some decoration and simple colors") {
+    potDecorations = "Simple pot decorated";
+  } else if (styleSelection === "I like a lot of decoration and bright colors") {
+    potDecorations = "Painted pot decorated";
   }
-
+  
+ 
   return { potMaterial, potDecorations };
 }
+
 
 
 

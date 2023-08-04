@@ -256,6 +256,9 @@ function getRecommendedPlantType(place) {
   return "";
 }
 
+
+
+
 function getPlantRecommendation() {
   const placeSelection = getSelectedOption("placeForm");
   const sunlightSelection = getSelectedOption("sunlightForm");
@@ -264,7 +267,7 @@ function getPlantRecommendation() {
   const styleSelection = getSelectedOption("styleForm");
   const extrasSelections = Array.from(document.querySelectorAll('input[name="extras"]:checked')).map(el => el.value);
   const potMaterials = getRecommendedPotMaterial(waterSelection, styleSelection);
-  console.log(potMaterials)
+ 
 
   if (!placeSelection || !sunlightSelection || !petsSelection || !waterSelection || !styleSelection) {
     // Handle error or show a message to the user
@@ -277,8 +280,6 @@ function getPlantRecommendation() {
   const randomIndex = Math.floor(Math.random() * recommendedPlants.length);
   const recommendedPlant = recommendedPlants[randomIndex];
 
-
- 
 
   const recommendation = new PlantRecommendationBuilder()
   
