@@ -1,21 +1,5 @@
 
 
-// renderPlants.js
-// function displayRecommendation(recommendation) {
-//   const plantInfo = document.querySelector(".plant-info");
-//   plantInfo.innerHTML = `
-//     <h2>${recommendation.name}</h2>
-//     <img src="./images/mini-plants.png" alt="Plant Image">
-//     <p>Soil: ${recommendation.soil}</p>
-//     <p>Pot: ${recommendation.pot}</p>
-//     <p>Color: ${recommendation.color}</p>
-//     <p>Extras: ${recommendation.extras.join(", ")}</p>
-//   `;
-// }
-
-
-// export default displayRecommendation
-
 function getPlantImage(name) {
   let formattedName;
   switch(name) {
@@ -47,6 +31,7 @@ function getPlantImage(name) {
   return `./images/${formattedName}.png`;
 }
 
+
 function displayRecommendation(recommendation) {
   const plantImage = getPlantImage(recommendation.name);
   const plantInfo = document.querySelector(".plant-info");
@@ -56,8 +41,11 @@ function displayRecommendation(recommendation) {
     <p>Soil: ${recommendation.soil}</p>
     <p>Pot: ${recommendation.pot}</p>
     <p>Color: ${recommendation.color}</p>
-    <p>Extras: ${recommendation.extras.join(", ")}</p>
+    <p>Extras: ${recommendation.extras}</p>  <!-- Simplemente muestra la cadena de extras -->
   `;
 }
 
 export default displayRecommendation;
+
+
+

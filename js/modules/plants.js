@@ -1,7 +1,5 @@
 import './config.js'
 
-
-
 // plants.js
 class PlantRecommendationBuilder {
   constructor() {

@@ -236,6 +236,8 @@
 import PlantRecommendationBuilder from './modules/plants.js';
 import displayRecommendation from './modules/renderPlants.js';
 import plantData from './modules/config.js';
+import { getRecommendedPotMaterial } from './modules/getPlants.js';
+
 
 function getSelectedOption(formId) {
   const form = document.getElementById(formId);
@@ -261,6 +263,8 @@ function getPlantRecommendation() {
   const waterSelection = getSelectedOption("waterForm");
   const styleSelection = getSelectedOption("styleForm");
   const extrasSelections = Array.from(document.querySelectorAll('input[name="extras"]:checked')).map(el => el.value);
+  const potMaterials = getRecommendedPotMaterial(waterSelection, styleSelection);
+  console.log(potMaterials)
 
   if (!placeSelection || !sunlightSelection || !petsSelection || !waterSelection || !styleSelection) {
     // Handle error or show a message to the user
@@ -273,12 +277,16 @@ function getPlantRecommendation() {
   const randomIndex = Math.floor(Math.random() * recommendedPlants.length);
   const recommendedPlant = recommendedPlants[randomIndex];
 
+
+ 
+
   const recommendation = new PlantRecommendationBuilder()
+  
     .withPlantName(recommendedPlant.name)
     .withSoilType(recommendedPlant.soilType)
-    .withPotMaterial(`${recommendedPlant.potMaterial} pot with ${recommendedPlant.potStyle} decorations`)
+    .withPotMaterial(potMaterials.potMaterial)
     .withPotColor(recommendedPlant.potColor)
-    .withExtras(recommendedPlant.extras)
+    .withExtras(extrasSelections.join(", ")) 
     .build();
 
   displayRecommendation(recommendation);
