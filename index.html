@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Plants</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,20 +15,20 @@
   </head>
   <body>
     <h1>Let us find the perfect plant for you</h1>
-    <form class="general-container">
+    <form class="general-container" id="plants-form">
       <p>Where will you place your plant?</p>
       <div id="placeForm" action="">
         <ul>
           <li>
-            <input type="radio" name="place" id="insideSomeLight" value="Inside with some indirect light"required />
-            <label for="insideSomeLight">Inside with some indirect light</label>
+            <input type="radio" name="place" id="lowLight" value="low-light"required />
+            <label for="low-light">Inside with some indirect light</label>
           </li>
           <li>
-            <input type="radio" name="place" id="insideALotLight" value="Inside with a lot of indirect light" required />
-            <label for="insideALotLight">Inside with a lot of indirect light</label>
+            <input type="radio" name="place" id="mediumLight" value="medium-light" required />
+            <label for="medium-light">Inside with a lot of indirect light</label>
           </li>
           <li>
-            <input type="radio" name="place" id="outside" value="Outside" required />
+            <input type="radio" name="place" id="outside" value="outdoor" required />
             <label for="outside">Outside</label>
           </li>
         </ul>
@@ -39,12 +39,12 @@
       <div id="sunlightForm" action="">
         <ul>
           <li>
-            <input type="radio" name="sunlight" id="yesSunlight" value="Yes" required />
-            <label for="yesSunlight">Yes</label>
+            <input type="radio" name="soilType" id="Sunlight" value="composted" required />
+            <label for="composted">Yes</label>
           </li>
           <li>
-            <input type="radio" name="sunlight" id="noSunlight" value="No" required />
-            <label for="noSunlight">No</label>
+            <input type="radio" name="soilType" id="noSunlight" value="fertilized" required />
+            <label for="fertilizedt">No</label>
           </li>
         </ul>
       </div>
@@ -52,11 +52,11 @@
       <div id="petsForm" action="">
         <ul>
           <li>
-            <input type="radio" name="pets" id="yesPets" value="Yes" required />
+            <input type="radio" name="toxicPlant" id="yesPets" value="noToxic" required />
             <label for="yesPets">Yes</label>
           </li>
           <li>
-            <input type="radio" name="pets" id="noPets" value="No" required />
+            <input type="radio" name="toxicPlant" id="noPets" value="Toxic" required />
             <label for="noPets">No</label>
           </li>
         </ul>
@@ -73,8 +73,8 @@
             <label for="underwater">Underwater</label>
           </li>
           <li>
-            <input type="radio" name="water" id="neither" value="Neither / I don’t know" required />
-            <label for="neither">Neither / I don’t know</label>
+            <input type="radio" name="water" id="NeitherWater" value="NeitherWater" required />
+            <label for="NeitherWater">Neither</label>
           </li>
         </ul>
       </div>
@@ -82,16 +82,16 @@
       <div id="styleForm" action="">
         <ul>
           <li>
-            <input type="radio" name="style" id="minimalism" value="Minimalism" required />
-            <label for="minimalism">I like minimalism and material colors</label>
+            <input type="radio" name="stylePot" id="simplePot" value="simple" required />
+            <label for="simple">I like minimalism and material colors</label>
           </li>
           <li>
-            <input type="radio" name="style" id="someDecoration" value="Some decoration" required />
-            <label for="someDecoration">I like some decoration and simple colors</label>
+            <input type="radio" name="stylePot" id="simpleDecoratedPot" value="simple-decorated" required />
+            <label for="simple-decorated">I like some decoration and simple colors</label>
           </li>
           <li>
-            <input type="radio" name="style" id="lotsOfDecoration" value="Lots of decoration" required />
-            <label for="lotsOfDecoration">I like a lot of decoration and bright colors</label>
+            <input type="radio" name="stylePot" id="paintedDecoratedPot" value="painted-decorated" required />
+            <label for="painted-decorated">I like a lot of decoration and bright colors</label>
           </li>
         </ul>
       </div>
@@ -99,22 +99,22 @@
       <div id="extrasForm" action="">
         <ul>
           <li>
-            <input type="checkbox" name="extras" id="mossPole" value="Moss pole" />
-            <label for="mossPole">Moss pole</label>
+            <input type="checkbox" name="extras" id="mossPole" value="Moss-pole" />
+            <label for="Moss-pole">Moss pole</label>
           </li>
           <li>
             <input type="checkbox" name="extras" id="pebbles" value="Pebbles" />
             <label for="pebbles">Pebbles</label>
           </li>
           <li>
-            <input type="checkbox" name="extras" id="smallerPlants" value="Smaller plants" />
-            <label for="smallerPlants">Smaller plants</label>
+            <input type="checkbox" name="extras" id="mini-plants" value="mini-plants" />
+            <label for="mini-plants">Smaller plants</label>
           </li>
         </ul>
       </div>
       <div class="btns-container">
-        <button class="get-btn">Get your plant</button>
-        <button class="clear-btn">Clear</button>
+        <button type="submit" class="get-btn">Get your plant</button>
+        <button type="reset" class="clear-btn">Clear</button>
       </div>
     </form>
     <div class="plant-info"></div>

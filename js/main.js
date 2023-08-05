@@ -233,7 +233,7 @@
 // }
 
 
-import PlantRecommendationBuilder from './modules/plants.js';
+import PlantRecommendationBuilder from './plantsRecommendationBuilder.js';
 import displayRecommendation from './modules/renderPlants.js';
 import plantData from './modules/config.js';
 import { getRecommendedPotMaterial } from './modules/getPlants.js';
@@ -276,10 +276,6 @@ function getPlantRecommendation() {
 
   const recommendedPlantType = getRecommendedPlantType(placeSelection);
   const recommendedPlants = plantData[recommendedPlantType];
-
-  const randomIndex = Math.floor(Math.random() * recommendedPlants.length);
-  const recommendedPlant = recommendedPlants[randomIndex];
-
 
   const recommendation = new PlantRecommendationBuilder()
     .withPlantName(recommendedPlant.name)
