@@ -1,4 +1,3 @@
-
 const plantsConfig = {
   lowLight: {
     toxic: ['Sansevieria', 'Peace-Lily'],
@@ -15,6 +14,3 @@ const plantsConfig = {
 };
 
 export default plantsConfig ;
-
-
-

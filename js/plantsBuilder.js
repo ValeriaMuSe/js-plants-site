@@ -1,4 +1,3 @@
-
 class PlantsBuilder {
 
   withPlantName(name) {
@@ -40,6 +39,7 @@ class PlantsBuilder {
     this.extras = value;
     return this;
   }
+
   withWateringMethod(value) {
     this.wateringMethod = value;
     return this;
@@ -48,5 +48,3 @@ class PlantsBuilder {
 }
 
 export default PlantsBuilder;
-
-
