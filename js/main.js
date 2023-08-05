@@ -282,7 +282,6 @@ function getPlantRecommendation() {
 
 
   const recommendation = new PlantRecommendationBuilder()
-  
     .withPlantName(recommendedPlant.name)
     .withSoilType(recommendedPlant.soilType)
     .withPotMaterial(potMaterials.potMaterial)
