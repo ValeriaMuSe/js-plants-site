@@ -1,5 +1,3 @@
-import './modules/config.js'
-
 
 class PlantsBuilder {
 
@@ -27,7 +25,7 @@ class PlantsBuilder {
     this.isToxic = false;
     return this;
   }
-  
+
   withNotPets() {
     this.isToxic = true;
     return this;
@@ -40,6 +38,10 @@ class PlantsBuilder {
 
   withExtras(value) {
     this.extras = value;
+    return this;
+  }
+  withWateringMethod(value) {
+    this.wateringMethod = value;
     return this;
   }
 
