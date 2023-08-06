@@ -1,3 +1,5 @@
-import initializeFormLogic  from './modules/form.js'; // Importa la función desde el archivo form.js
+// main.js
+import { initializeFormLogic } from './modules/formLogic.js';
 
-initializeFormLogic();
+// Inicializar la lógica del formulario al cargar la página
+window.addEventListener('DOMContentLoaded', initializeFormLogic);
