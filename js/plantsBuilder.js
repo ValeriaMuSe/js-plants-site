@@ -1,7 +1,8 @@
 class PlantsBuilder {
 
-  withPlantName(name) {
-    this.name = name;
+  withPlant(plant) {
+    this.name = plant.name;
+    this.image = plant.image;
     return this;
   }
 

@@ -1,16 +1,58 @@
 const plantsConfig = {
   lowLight: {
-    toxic: ['Sansevieria', 'Peace-Lily'],
-    nonToxic: ['Boston-Fern']
+    toxic: [
+      {
+        name: 'Sansevieria',
+        image: './images/plant-sansevieria.png'
+      },
+      {
+        name: 'Peace-Lily',
+        image: './images/plant-peace-lily.png'
+      }
+    ],
+    nonToxic: [
+      {
+        name: 'Boston-Fern',
+        image: './images/plant-fern.png'
+      }
+    ]
   },
   mediumLight: {
-    toxic: ['Aglaonema', 'Peace-Lily'],
-    nonToxic: ['Monstera', 'Peace-Lily']
+    toxic: [
+      {
+        name: 'Aglaonema',
+        image: './images/plant-aglaonema.png'
+      },
+      {
+        name: 'Peace Lily',
+        image: './images/plant-peace-lily.png'
+      }
+    ],
+    nonToxic: [
+      {
+        name: 'Monstera',
+        image: './images/monstera.png'
+      },
+      {
+        name: 'Peace Lily',
+        image: './images/plant-peace-lily.png'
+      }
+    ]
   },
   outdoor: {
-    toxic: ['Aloe-Vera'],
-    nonToxic: ['Cactus']
+    toxic: [
+      {
+        name: 'Aloe Vera',
+        image: './images/aloe-vera.png'
+      }
+    ],
+    nonToxic: [
+      {
+        name: 'Cactus',
+        image: './images/plant-cactus.png'
+      }
+    ]
   }
 };
 
-export default plantsConfig ;
+export default plantsConfig;
