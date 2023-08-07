@@ -1,6 +1,5 @@
 import { buildRecommendation } from './buildRecommendation.js';
 import { renderRecommendation, clearRecommendation } from './renderRecommendation.js';
-// import plantsConfig from './config.js';
 
 const initializeFormLogic = () => {
   const form = document.getElementById('plants-form');

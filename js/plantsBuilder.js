@@ -1,10 +1,13 @@
 class PlantsBuilder {
 
   withPlant(plant) {
-    this.name = plant.name;
-    this.image = plant.image;
+    if (plant) {
+      this.name = plant.name;
+      this.image = plant.image;
+    }
     return this;
   }
+  
 
   withSoilType(value) {
     this.soil = value;

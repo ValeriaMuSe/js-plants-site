@@ -1,11 +1,8 @@
 function renderRecommendation(recommendation) {
   const recommendationDiv = document.querySelector('.plant-info');
 
-  console.log('Recommendation:', recommendation);
-
   recommendationDiv.innerHTML = `
     <h2>${recommendation.name}</h2>
-    <img src="${recommendation.image}" alt="" />
     <ul>
       <li>Name: ${recommendation.name}</li>
       <li>Soil: ${recommendation.soil}</li>
