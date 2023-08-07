@@ -13,9 +13,9 @@ function buildRecommendation(place, soilType, toxicPlant, water, stylePot, extra
   const recommendation = new PlantsBuilder()
     .withPlant(plant) 
     .withSoilType(soilType)
-    .withCeramicMaterial() // O conClayMaterial() según tu lógica
-    .withPets(toxicPlant === 'nonToxic') // Si es no tóxica, conPets; si es tóxica, conNotPets
-    .withWateringMethod(water) // Agrega el método para water
+    .withCeramicMaterial() 
+    .withPets(toxicPlant === 'nonToxic') 
+    .withWateringMethod(water) 
     .withPotStyle(stylePot)
     .withExtras(extras);
   
