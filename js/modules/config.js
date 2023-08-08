@@ -56,3 +56,4 @@ const plantsConfig = {
 };
 
 export default plantsConfig;
+

@@ -7,17 +7,17 @@ function getPlant(place, toxicPlant) {
   return plant;
 }
 
-function buildRecommendation(place, soilType, toxicPlant, water, stylePot, extras) {
+function buildRecommendation(place, soilType, toxicPlant, water, style, extras) {
   const plant = getPlant(place, toxicPlant);
 
   const recommendation = new PlantsBuilder()
     .withPlant(plant)
     .withImage(plant.image)
     .withSoilType(soilType)
-    .withCeramicMaterial() // Default to ceramic
+    .withCeramicMaterial( ) // Default to ceramic
     .withPets(toxicPlant === 'nonToxic')
     .withWateringMethod(water)
-    .withPotStyle(stylePot)
+    .withPotStyle(style)
     .withExtras(extras);
 
   // Update the material of the pot based on watering preference

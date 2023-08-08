@@ -1,5 +1,6 @@
 
 import { getColorByPotStyle } from './modules/colorUtils.js';
+import { getPotImageByStyle } from './modules/potImages.js';
 
 class PlantsBuilder {
 
@@ -38,12 +39,13 @@ class PlantsBuilder {
     return this;
   }
 
+
   withPotStyle(value) {
     this.potDecoration = value;
-    this.color = getColorByPotStyle(value); 
+    this.color = getColorByPotStyle(value);
+    this.potImage = getPotImageByStyle(value);
     return this;
   }
-
 
   withExtras(value) {
     this.extras = value;
