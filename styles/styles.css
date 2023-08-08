@@ -18,6 +18,11 @@ input {
   accent-color: #673AB7;
 }
 
+fieldset {
+  width: 560px;
+  border: transparent;
+}
+
 .general-container {
   display: flex;
   flex-direction: column;
