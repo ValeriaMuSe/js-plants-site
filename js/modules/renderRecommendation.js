@@ -3,6 +3,7 @@ function renderRecommendation(recommendation) {
 
   recommendationDiv.innerHTML = `
     <h2>${recommendation.name}</h2>
+    <img class="plant__image" src="${recommendation.image}" alt="" />
     <ul>
       <li>Name: ${recommendation.name}</li>
       <li>Soil: ${recommendation.soil}</li>

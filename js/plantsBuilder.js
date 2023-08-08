@@ -1,13 +1,17 @@
 class PlantsBuilder {
 
   withPlant(plant) {
-    if (plant) {
-      this.name = plant.name;
-      this.image = plant.image;
-    }
+    this.name = plant.name;
+    this.image = plant.image;
     return this;
   }
   
+  getPlantName() {
+    if (!this.name) {
+      return 'No plant was set.';
+    }
+    return this.name;
+  }
 
   withSoilType(value) {
     this.soil = value;
