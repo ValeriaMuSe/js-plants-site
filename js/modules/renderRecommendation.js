@@ -1,3 +1,4 @@
+
 function renderRecommendation(recommendation) {
   const recommendationDiv = document.querySelector('.plant-info');
 
@@ -19,4 +20,9 @@ function clearRecommendation() {
   recommendationDiv.innerHTML = '';
 }
 
-export { renderRecommendation, clearRecommendation }
+export { renderRecommendation, clearRecommendation };
+
+
+
+
+

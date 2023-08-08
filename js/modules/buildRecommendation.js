@@ -1,28 +1,66 @@
+// import PlantsBuilder from '../plantsBuilder.js';
+// import plantsConfig from './config.js';
+
+// function getPlant(place, toxicPlant) {
+//   const plantType = plantsConfig[place]?.[toxicPlant]?.[0];
+//   const plant = plantType ? { name: plantType.name } : null;
+//   return plant;
+// }
+
+// function buildRecommendation(place, soilType, toxicPlant, water, stylePot, extras) {
+//   const plant = getPlant(place, toxicPlant);
+
+//   const recommendation = new PlantsBuilder()
+//     .withPlant(plant) 
+//     .withSoilType(soilType)
+//     .withCeramicMaterial() 
+//     .withPets(toxicPlant === 'nonToxic') 
+//     .withWateringMethod(water) 
+//     .withPotStyle(stylePot)
+//     .withExtras(extras);
+  
+//     const plantName = recommendation.getPlantName();
+//     // console.log(plantName); // This will print the name of the recommended plant
+
+//   return recommendation;
+// }
+
+// export default buildRecommendation
+
+
+//sirve mas 
 import PlantsBuilder from '../plantsBuilder.js';
 import plantsConfig from './config.js';
 
 function getPlant(place, toxicPlant) {
-  const plantType = plantsConfig[place]?.[toxicPlant]?.[0];
-  const plant = plantType ? { name: plantType.name } : null;
-  return plant;
+  // Use plantsConfig to get the appropriate plant based on the place and toxicPlant
+  return plantsConfig[place][toxicPlant][0]; // You may need to adapt this logic based on your actual data structure
 }
 
 function buildRecommendation(place, soilType, toxicPlant, water, stylePot, extras) {
   const plant = getPlant(place, toxicPlant);
 
   const recommendation = new PlantsBuilder()
-    .withPlant(plant) 
+    .withPlant(plant)
     .withSoilType(soilType)
-    .withCeramicMaterial() 
-    .withPets(toxicPlant === 'nonToxic') 
-    .withWateringMethod(water) 
+    .withCeramicMaterial() // Default to ceramic
+    .withPets(toxicPlant === 'nonToxic')
+    .withWateringMethod(water)
     .withPotStyle(stylePot)
     .withExtras(extras);
-  
-    const plantName = recommendation.getPlantName();
-    console.log(plantName); // This will print the name of the recommended plant
+
+  // Update the material of the pot based on watering preference
+  if (water === 'Overwater') {
+    recommendation.withClayMaterial(); // Use clay pot for overwatering
+  }
 
   return recommendation;
+
+  
 }
 
-export default buildRecommendation
+export default buildRecommendation;
+
+
+
+

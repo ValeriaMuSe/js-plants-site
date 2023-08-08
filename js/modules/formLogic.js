@@ -1,4 +1,5 @@
-import buildRecommendation  from './buildRecommendation.js';
+
+import buildRecommendation from './buildRecommendation.js';
 import { renderRecommendation, clearRecommendation } from './renderRecommendation.js';
 
 const initializeFormLogic = () => {
@@ -24,6 +25,6 @@ const initializeFormLogic = () => {
     form.reset();
     clearRecommendation();
   });
-}
+};
 
 export default initializeFormLogic;

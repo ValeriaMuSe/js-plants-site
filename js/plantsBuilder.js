@@ -1,16 +1,12 @@
+
+import { getColorByPotStyle } from './modules/colorUtils.js';
+
 class PlantsBuilder {
 
   withPlant(plant) {
     this.name = plant.name;
     this.image = plant.image;
     return this;
-  }
-  
-  getPlantName() {
-    if (!this.name) {
-      return 'No plant was set.';
-    }
-    return this.name;
   }
 
   withSoilType(value) {
@@ -28,23 +24,8 @@ class PlantsBuilder {
     return this;
   }
 
-  withPets() {
-    this.isToxic = false;
-    return this;
-  }
-
-  withNotPets() {
-    this.isToxic = true;
-    return this;
-  }
-
-  withPotStyle(value) {
-    this.potDecoration = value;
-    return this;
-  }
-
-  withExtras(value) {
-    this.extras = value;
+  withPets(isToxic) {
+    this.color = isToxic ? 'toxic-color' : 'non-toxic-color';
     return this;
   }
 
@@ -53,6 +34,17 @@ class PlantsBuilder {
     return this;
   }
 
+  withPotStyle(value) {
+    this.potDecoration = value;
+    this.color = getColorByPotStyle(value); 
+    return this;
+  }
+
+
+  withExtras(value) {
+    this.extras = value;
+    return this;
+  }
 }
 
 export default PlantsBuilder;
