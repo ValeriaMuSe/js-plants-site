@@ -33,8 +33,9 @@ import PlantsBuilder from '../plantsBuilder.js';
 import plantsConfig from './config.js';
 
 function getPlant(place, toxicPlant) {
-  // Use plantsConfig to get the appropriate plant based on the place and toxicPlant
-  return plantsConfig[place][toxicPlant][0]; // You may need to adapt this logic based on your actual data structure
+  const plantType = plantsConfig[place]?.[toxicPlant]?.[0];
+  const plant = plantType ? { name: plantType.name, image: plantType.image } : null;
+  return plant;
 }
 
 function buildRecommendation(place, soilType, toxicPlant, water, stylePot, extras) {
@@ -42,6 +43,7 @@ function buildRecommendation(place, soilType, toxicPlant, water, stylePot, extra
 
   const recommendation = new PlantsBuilder()
     .withPlant(plant)
+    .withImage(plant.image)
     .withSoilType(soilType)
     .withCeramicMaterial() // Default to ceramic
     .withPets(toxicPlant === 'nonToxic')

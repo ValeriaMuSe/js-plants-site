@@ -3,9 +3,18 @@ import { getColorByPotStyle } from './modules/colorUtils.js';
 
 class PlantsBuilder {
 
+  // withPlant(plant) {
+  //   this.name = plant.name;
+  //   this.image = plant.image;
+  //   return this;
+  // }
   withPlant(plant) {
     this.name = plant.name;
-    this.image = plant.image;
+    return this;
+  }
+  
+  withImage(value) {
+    this.image = value;
     return this;
   }
 

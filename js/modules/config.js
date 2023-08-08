@@ -31,7 +31,7 @@ const plantsConfig = {
     nonToxic: [
       {
         name: 'Monstera',
-        image: './images/monstera.png'
+        image: './images/plant-monstera.png'
       },
       {
         name: 'Peace Lily',
