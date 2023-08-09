@@ -67,8 +67,9 @@ fieldset {
 }
 
 .image__position {
-  margin-top: 101px;
+  margin-top: 135px;
   position: absolute;
+  z-index: -1;
 }
 
 .plant-info {
@@ -94,4 +95,20 @@ fieldset {
   color: white;
   height: 135px;
   border-radius: 4px;
+}
+
+.plant__title {
+  background-color: #673AB7;
+  margin-bottom: 0px;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.plant__details {
+  background-color: #673AB7;
+  margin-top: 35px;
+  margin-bottom: 0px;
+  color: white;
+  padding: 20px;
 }
