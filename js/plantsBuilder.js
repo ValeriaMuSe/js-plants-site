@@ -1,5 +1,4 @@
-import getColorByPotStyle from './modules/colorUtils.js';
-import getPotImageByStyle from './modules/potImages.js';
+import { getColorByPotStyle, getPotImageByStyle}  from './modules/config.js';
 
 class PlantsBuilder {
 
