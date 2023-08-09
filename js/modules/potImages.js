@@ -1,17 +1,5 @@
-// export function getPotImageByStyle(style) {
-//     switch (style) {
-//       case 'I like minimalism and material colors	':
-//         return './images/simple-clay-pot.png';
-//       case 'I like some decoration and simple colors':
-//         return './images/simple-clay-pot-decorated.png';
-//       case 'I like a lot of decoration and bright colors':
-//         return '../images/painted-clay-pot-decorated.png';
-//       default:
-//         return './images/default-pot.png';
-//     }
-//   }
-  
-export function getPotImageByStyle(style, watering, potDecoration) {
+/* eslint-disable no-else-return */
+function getPotImageByStyle(style, watering) {
     if (watering === 'Overwater') {
       if (style === 'I like minimalism and material colors') {
         return './images/simple-clay-pot.png';
@@ -32,4 +20,4 @@ export function getPotImageByStyle(style, watering, potDecoration) {
     return './images/simple-clay-pot.png';
   }
   
-  
+export default getPotImageByStyle

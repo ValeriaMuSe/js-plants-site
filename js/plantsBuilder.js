@@ -1,6 +1,5 @@
-
-import { getColorByPotStyle } from './modules/colorUtils.js';
-import { getPotImageByStyle } from './modules/potImages.js';
+import getColorByPotStyle from './modules/colorUtils.js';
+import getPotImageByStyle from './modules/potImages.js';
 
 class PlantsBuilder {
 
@@ -29,8 +28,8 @@ class PlantsBuilder {
     return this;
   }
 
-  withPets(isToxic) {
-    this.color = isToxic ? 'toxic-color' : 'non-toxic-color';
+  withPets(value) {
+    this.pets = value
     return this;
   }
 
