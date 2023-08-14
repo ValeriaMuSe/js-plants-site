@@ -112,3 +112,36 @@ fieldset {
   color: white;
   padding: 20px;
 }
+
+.customize-btn {
+  position: absolute;
+  left: 115px;
+  top: 625px;
+  width: 120px;
+  height: 35px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.pot-container {
+  display: flex;
+}
+
+.blue-input {
+  accent-color: #0036b3;
+}
+
+.pink-input {
+  accent-color: #c20a7b;
+}
+
+.green-input {
+  accent-color: #007b4e;
+}
+
+.subtitle-section {
+  font-weight: 600;
+}

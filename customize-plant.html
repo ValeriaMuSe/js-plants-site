@@ -1,0 +1,121 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plants</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Customize your plant!</h1>
+    <form class="general-container" id="plants-form">
+      <h2>Choose your pot:</h2>
+      <p class="subtitle-section">Pot material</p>
+      <fieldset id="placeForm" action="">
+        <ul class="pot-container">
+          <li>
+            <input type="radio" name="pot-material" id="clay-pot" value="clay-pot" required />
+            <label for="clay-pot">Clay</label>
+          </li>
+          <li>
+            <input type="radio" name="pot-material" id="ceramic-pot" value="ceramic-pot" required />
+            <label for="ceramic-pot">Ceramic</label>
+          </li>
+        </ul>
+      </fieldset>
+      <p class="subtitle-section">Pot decorations</p>
+      <fieldset id="placeForm" action="">
+        <ul>
+          <li>
+            <input type="radio" name="pot-decoration" id="clay-pot" value="clay-pot" required />
+            <label for="clay-pot">Yes</label>
+          </li>
+          <li>
+            <input type="radio" name="pot-decoration" id="ceramic-pot" value="ceramic-pot" required />
+            <label for="ceramic-pot">No</label>
+          </li>
+        </ul>
+      </fieldset>
+      <p class="subtitle-section">Pot color</p>
+      <fieldset id="placeForm" action="">
+        <ul>
+          <li>
+            <input type="radio" name="pot-color" id="blue-pot" class="blue-input" value="blue-pot" required />
+            <label class="blue-label" for="clay-pot">Blue</label>
+          </li>
+          <li>
+            <input type="radio" name="pot-color" id="pink-pot" class="pink-input" value="pink-pot" required />
+            <label class="pink-label" for="ceramic-pot">Pink</label>
+          </li>
+          <li>
+            <input type="radio" name="pot-color" id="green-pot" class="green-input" value="green-pot" required />
+            <label class="green-label" for="ceramic-pot">Green</label>
+          </li>
+          <li>
+            <input type="radio" name="pot-color" id="purple-pot" value="purple-pot" required />
+            <label class="purple-label" for="ceramic-pot">Purple</label>
+          </li>
+        </ul>
+      </fieldset>
+      <h2>Choose your soil:</h2>
+      <fieldset id="placeForm" action="">
+        <ul>
+          <li>
+            <input type="radio" name="soil" id="composted-soil" value="composted-soil" required />
+            <label for="composted-soil">Basic composted soil</label>
+          </li>
+          <li>
+            <input type="radio" name="soil" id="fertilized-soil" value="fertilized-soil" required />
+            <label for="fertilized-soil">Premium fertilized soil</label>
+          </li>
+          <li>
+            <input type="radio" name="soil" id="drainage-soil" value="drainage-soil" required />
+            <label for="drainage-soil">Easy drainage soil</label>
+          </li>
+        </ul>
+      </fieldset>
+      <h2>Choose your plant:</h2> 
+      <fieldset id="placeForm" action="">
+        <ul>
+          <li>
+            <input type="radio" name="soil" id="composted-soil" value="composted-soil" required />
+            <label for="composted-soil">Plant 1</label>
+          </li>
+          <li>
+            <input type="radio" name="soil" id="fertilized-soil" value="fertilized-soil" required />
+            <label for="fertilized-soil">Plant 2</label>
+          </li>
+          <li>
+            <input type="radio" name="soil" id="drainage-soil" value="drainage-soil" required />
+            <label for="drainage-soil">Plant 3</label>
+          </li>
+        </ul>
+      </fieldset>  
+      <h2>Choose your plant:</h2> 
+      <fieldset id="extrasForm" action="">
+        <ul>
+          <li>
+            <input type="checkbox" name="extras" id="mossPole" value="Moss-pole" />
+            <label for="Moss-pole">Moss pole</label>
+          </li>
+          <li>
+            <input type="checkbox" name="extras" id="pebbles" value="Pebbles" />
+            <label for="pebbles">Pebbles</label>
+          </li>
+          <li>
+            <input type="checkbox" name="extras" id="mini-plants" value="mini-plants" />
+            <label for="mini-plants">Smaller plants</label>
+          </li>
+        </ul>
+      </fieldset>  
+    </form>
+    <div class="plant-info"></div>
+  </body>
+</html>
