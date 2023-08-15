@@ -30,9 +30,11 @@ function buildRecommendation(place, soilType, toxicPlant, water, style, extras) 
     .withPotStyle(style)
     .withExtras(extras);
 
-  if (water === 'Overwater') {
-    recommendation.withClayMaterial(); 
-  }
+    if (water === 'Overwater') {
+      recommendation.withClayMaterial(); 
+    } else if (water === 'Underwater' || water === 'Neither') {
+      recommendation.withCeramicMaterial();
+    }
 
   localStorage.setItem('plantRecommendation', JSON.stringify(recommendation));
 
