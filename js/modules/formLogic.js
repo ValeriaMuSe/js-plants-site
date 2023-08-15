@@ -16,9 +16,6 @@ const initializeFormLogic = () => {
 
     const recommendation = buildRecommendation(place, soilType, toxicPlant, water, stylePot, extras);
     renderRecommendation(recommendation);
-
-    // Redirect to the second page:
-    window.location.href = '../../customize-plant.html';
   });
 
   const clearButton = document.querySelector('.clear-btn');
