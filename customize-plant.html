@@ -18,7 +18,7 @@
     <form class="general-container" id="plants-form">
       <h2>Choose your pot:</h2>
       <p class="subtitle-section">Pot material</p>
-      <fieldset id="placeForm" action="">
+      <fieldset id="" action="">
         <ul class="pot-container">
           <li>
             <input type="radio" name="pot-material" id="clay-pot" value="clay-pot" required />
@@ -31,8 +31,8 @@
         </ul>
       </fieldset>
       <p class="subtitle-section">Pot decorations</p>
-      <fieldset id="placeForm" action="">
-        <ul>
+      <fieldset id="" action="">
+        <ul class="pot-container">
           <li>
             <input type="radio" name="pot-decoration" id="clay-pot" value="clay-pot" required />
             <label for="clay-pot">Yes</label>
@@ -44,28 +44,32 @@
         </ul>
       </fieldset>
       <p class="subtitle-section">Pot color</p>
-      <fieldset id="placeForm" action="">
+      <fieldset id="" action="">
         <ul>
-          <li>
-            <input type="radio" name="pot-color" id="blue-pot" class="blue-input" value="blue-pot" required />
-            <label class="blue-label" for="clay-pot">Blue</label>
-          </li>
-          <li>
-            <input type="radio" name="pot-color" id="pink-pot" class="pink-input" value="pink-pot" required />
-            <label class="pink-label" for="ceramic-pot">Pink</label>
-          </li>
-          <li>
-            <input type="radio" name="pot-color" id="green-pot" class="green-input" value="green-pot" required />
-            <label class="green-label" for="ceramic-pot">Green</label>
-          </li>
-          <li>
-            <input type="radio" name="pot-color" id="purple-pot" value="purple-pot" required />
-            <label class="purple-label" for="ceramic-pot">Purple</label>
-          </li>
+          <div class="pot-container pot__container--color">
+            <li>
+              <input type="radio" name="pot-color" id="blue-pot" class="blue-input" value="blue-pot" required />
+              <label class="blue-label" for="clay-pot">Blue</label>
+            </li>
+            <l class="pink-pot--margin">
+              <input type="radio" name="pot-color" id="pink-pot" class="pink-input" value="pink-pot" required />
+              <label class="pink-label" for="ceramic-pot">Pink</label>
+            </l>
+          </div>
+          <div class="pot-container">
+            <li>
+              <input type="radio" name="pot-color" id="green-pot" class="green-input" value="green-pot" required />
+              <label class="green-label" for="ceramic-pot">Green</label>
+            </li>
+            <li>
+              <input type="radio" name="pot-color" id="purple-pot" value="purple-pot" required />
+              <label class="purple-label" for="ceramic-pot">Purple</label>
+            </li>
+          </div>
         </ul>
       </fieldset>
       <h2>Choose your soil:</h2>
-      <fieldset id="placeForm" action="">
+      <fieldset id="" action="">
         <ul>
           <li>
             <input type="radio" name="soil" id="composted-soil" value="composted-soil" required />
@@ -82,21 +86,12 @@
         </ul>
       </fieldset>
       <h2>Choose your plant:</h2> 
-      <fieldset id="placeForm" action="">
-        <ul>
-          <li>
-            <input type="radio" name="soil" id="composted-soil" value="composted-soil" required />
-            <label for="composted-soil">Plant 1</label>
-          </li>
-          <li>
-            <input type="radio" name="soil" id="fertilized-soil" value="fertilized-soil" required />
-            <label for="fertilized-soil">Plant 2</label>
-          </li>
-          <li>
-            <input type="radio" name="soil" id="drainage-soil" value="drainage-soil" required />
-            <label for="drainage-soil">Plant 3</label>
-          </li>
-        </ul>
+      <fieldset id="" action="">
+        <select class="dropdown">
+          <option class="option__dropdown" value="">Plant 1</option>
+          <option class="option__dropdown" value="">Plant 2</option>
+          <option class="option__dropdown" value="">Plant 3</option>
+        </select>
       </fieldset>  
       <h2>Choose your plant:</h2> 
       <fieldset id="extrasForm" action="">
@@ -114,8 +109,9 @@
             <label for="mini-plants">Smaller plants</label>
           </li>
         </ul>
-      </fieldset>  
+      </fieldset>
     </form>
     <div class="plant-info"></div>
   </body>
+  <script type="module" src="js/modules/renderRecommendation.js"></script>
 </html>

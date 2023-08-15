@@ -34,6 +34,8 @@ function buildRecommendation(place, soilType, toxicPlant, water, style, extras) 
     recommendation.withClayMaterial(); 
   }
 
+  localStorage.setItem('plantRecommendation', JSON.stringify(recommendation));
+
   return recommendation;
 }
 

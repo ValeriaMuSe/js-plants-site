@@ -21,6 +21,7 @@ input {
 fieldset {
   width: 560px;
   border: transparent;
+  margin-left: -14px;
 }
 
 .general-container {
@@ -128,20 +129,47 @@ fieldset {
 
 .pot-container {
   display: flex;
+  gap: 10px;
 }
 
 .blue-input {
-  accent-color: #0036b3;
+  accent-color: #0b48d6;
 }
 
 .pink-input {
   accent-color: #c20a7b;
 }
 
+.pink-pot--margin {
+  margin-left: 12px;
+}
+
 .green-input {
-  accent-color: #007b4e;
+  accent-color: #00935d;
+}
+
+.pot__container--color {
+  margin-bottom: 6px;
 }
 
 .subtitle-section {
   font-weight: 600;
+}
+
+.dropdown {
+  width: 200px;
+  height: 55px;
+  padding: 10px;
+  background-color: rgb(237, 237, 237);
+  border: none;
+  border-radius: 5px;
+  color: #673AB7;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.option__dropdown {
+  background-color: #fff;
+  color: #000;
+  font-weight: 500;
 }
