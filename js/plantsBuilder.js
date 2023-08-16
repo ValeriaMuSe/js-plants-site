@@ -33,6 +33,7 @@ class PlantsBuilder {
     this.pets = value
     return this;
   }
+  
   withWateringMethod(value) {
     this.wateringMethod = value;
     if (value === 'Neither') {
