@@ -12,7 +12,7 @@ const initializeFormLogic = () => {
     const toxicPlant = document.querySelector('input[name="toxicPlant"]:checked').value;
     const water = document.querySelector('input[name="water"]:checked').value;
     const stylePot = document.querySelector('input[name="stylePot"]:checked').value;
-    // const extras = Array.from(document.querySelectorAll('input[name="extras"]:checked')).map(input => input.value);
+   
   
   const extras = Array.from(document.querySelectorAll('input[name="extras"]:checked')).map(input => input.value);
 
@@ -20,7 +20,7 @@ const initializeFormLogic = () => {
     extras = [];
   }
 
-  // const recommendation = buildRecommendation(place, soilType, toxicPlant, water, stylePot, extras);
+ 
   const recommendation = buildRecommendation(place, soilType, toxicPlant, water, stylePot, extras);
   renderRecommendation(recommendation);
 });

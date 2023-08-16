@@ -22,16 +22,26 @@ function getExtrasImages(extras) {
     "mini-plants": './images/mini-plants.png',
   };
 
+  const extraClassMap = {
+    "moss-pole": 'extra-moss-pole',
+    "pebbles": 'extra-pebbles',
+    "mini-plants": 'extra-mini-plants',
+  };
+
   if (extras.length === 0) {
     return [];
   }
 
   extras.forEach(extra => {
-    extrasImages.push(imagesMap[extra]);
+    extrasImages.push({
+      src: imagesMap[extra],
+      className: extraClassMap[extra]
+    });
   });
 
   return extrasImages;
 }
+
 
 function buildRecommendation(place, soilType, toxicPlant, water, style, extras) {
   const plant = getPlant(place, toxicPlant);

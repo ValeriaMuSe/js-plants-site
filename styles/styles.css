@@ -117,7 +117,7 @@ fieldset {
 .customize-btn {
   position: absolute;
   left: 115px;
-  top: 625px;
+  top: 637px;
   width: 120px;
   height: 35px;
   font-size: 16px;
@@ -178,3 +178,21 @@ fieldset {
   width: 125px;
 }
 
+.extra-moss-pole {
+  position: absolute;
+  left: 112px;
+  bottom: 212px;
+} 
+
+.extra-pebbles {
+  position: absolute;
+  bottom: 154px;
+  left: 71px;
+  width: 210px;
+}
+
+.extra-mini-plants {
+  position: absolute;
+  top: 322px;
+  left: 54px;
+}
