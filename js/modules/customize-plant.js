@@ -1,7 +1,3 @@
-import {renderRecommendation} from './renderRecommendation.js'
+import renderRecommendationPage2 from './renderPreviewPage2.js'
 
-window.onload = function displayRecommendation() {
-  const recommendation = JSON.parse(localStorage.getItem('plantRecommendation'));
-
-  renderRecommendation(recommendation);
-}
+renderRecommendationPage2()
