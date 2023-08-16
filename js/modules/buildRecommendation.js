@@ -1,7 +1,7 @@
 import PlantsBuilder from '../plantsBuilder.js';
 import plantsConfig from './config.js';
 
-function getPlant(place, toxicPlant) {
+function getPlant(place, soilType, toxicPlant) {
   if (!plantsConfig[place]) {
     return null;
   }
@@ -9,10 +9,12 @@ function getPlant(place, toxicPlant) {
   const plantCategory = toxicPlant.toLowerCase() === 'yes' ? 'nonToxic' : 'toxic';
   const plantArray = plantsConfig[place][plantCategory];
   const plantType = plantArray ? plantArray[0] : null;
-  const plant = plantType ? { name: plantType.name, image: plantType.image } : null;
+  const plant = plantType ? { name: plantType.name, image: plantType.image, soil: soilType} : null;
 
   return plant;
 }
+
+
 
 function getExtrasImages(extras) {
   const extrasImages = [];
@@ -42,10 +44,9 @@ function getExtrasImages(extras) {
   return extrasImages;
 }
 
+function buildRecommendation(place, soilType, toxicPlant, water, style, extras, soilImage) {
+  const plant = getPlant(place, soilType, toxicPlant, );
 
-function buildRecommendation(place, soilType, toxicPlant, water, style, extras) {
-  const plant = getPlant(place, toxicPlant);
-  
   if (!plant) {
     return null;
   }
@@ -53,14 +54,16 @@ function buildRecommendation(place, soilType, toxicPlant, water, style, extras) 
   const extraImages = getExtrasImages(extras);
 
   const recommendation = new PlantsBuilder()
-    .withPlant(plant)
-    .withImage(plant.image)
-    .withSoilType(soilType)
-    .withCeramicMaterial()
-    .withWateringMethod(water)
-    .withPotStyle(style)
-    .withExtras(extras)
-    .withExtrasImages(extraImages);
+  
+  .withPlant(plant)
+  .withImage(plant.image)
+  .withSoilType(soilType)
+  .withCeramicMaterial()
+  .withWateringMethod(water)
+  .withPotStyle(style)
+  .withExtras(extras)
+  .withExtrasImages(extraImages)
+  .withSoilImage(soilImage);
 
   if (water === 'Overwater') {
     recommendation.withClayMaterial(); 
@@ -72,5 +75,6 @@ function buildRecommendation(place, soilType, toxicPlant, water, style, extras) 
 
   return recommendation;
 }
+
 
 export default buildRecommendation;

@@ -12,6 +12,7 @@ function renderRecommendation(recommendation) {
     return;
   }
 
+
   recommendationDiv.innerHTML = `
     <div class="plant__title">
       <p>The perfect plant for you is...</p>
@@ -19,6 +20,7 @@ function renderRecommendation(recommendation) {
     </div>
     <img class="plant__image" src="${recommendation.image}" alt="" />
     <img class="plant__image image__position" src="${recommendation.potImage}" alt="" />
+    <img class="soil__image" src="${recommendation.soilImage}" alt="" />
     ${recommendation.extrasImages
       .map((image) => `<img class="extra__image ${image.className}" src="${image.src}" alt="" />`)
       .join('')}
@@ -31,6 +33,7 @@ function renderRecommendation(recommendation) {
     </ul>
     <a href="../../customize-plant.html" id="customize-btn" class="get-btn customize-btn">Customize!</a>
   `;
+
 }
 
 

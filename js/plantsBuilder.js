@@ -17,6 +17,11 @@ class PlantsBuilder {
     return this;
   }
 
+  withSoilImage(value) {
+    this.soilImage = value;
+    return this;
+  }
+
   withCeramicMaterial() {
     this.pot = 'ceramic';
     this.wateringMethod = 'Underwater';
