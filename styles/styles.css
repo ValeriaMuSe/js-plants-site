@@ -173,3 +173,7 @@ fieldset {
   color: #000;
   font-weight: 500;
 }
+
+.extra__image {
+width: 125px;
+}

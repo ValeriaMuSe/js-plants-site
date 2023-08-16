@@ -52,6 +52,11 @@ class PlantsBuilder {
     this.extras = value;
     return this;
   }
+
+  withExtrasImages(images) {
+    this.extrasImages = images;
+    return this;
+  }
 }
 
 export default PlantsBuilder;
