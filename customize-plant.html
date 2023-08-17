@@ -34,36 +34,46 @@
       <fieldset id="" action="">
         <ul class="pot-container">
           <li>
-            <input type="radio" name="pot-decoration" id="clay-pot" value="clay-pot" required />
-            <label for="clay-pot">Yes</label>
+            <input type="radio" name="pot-decoration" id="yes-decoration" value="yes-decoration" required />
+            <label for="yes-decoration">Yes</label>
           </li>
           <li>
-            <input type="radio" name="pot-decoration" id="ceramic-pot" value="ceramic-pot" required />
-            <label for="ceramic-pot">No</label>
+            <input type="radio" name="pot-decoration" id="no-decoration" value="no-decoration" required />
+            <label for="no-decoration">No</label>
           </li>
         </ul>
       </fieldset>
       <p class="subtitle-section">Pot color</p>
       <fieldset id="" action="">
         <ul>
-          <div class="pot-container pot__container--color">
+          <div class="pot-container pots__container--color">
+            <li>
+              <input type="radio" name="pots-color" id="yes-color" value="Yes" required />
+              <label for="yes-color">Yes</label>
+            </li>
+            <li class="pot--margin">
+              <input type="radio" name="pots-color" id="no-color" value="No" required />
+              <label for="no-color">No</label>
+            </li>
+          </div>
+          <div class="pot-container pot__container--color" id="color-options-1">
             <li>
               <input type="radio" name="pot-color" id="blue-pot" class="blue-input" value="blue-pot" required />
-              <label class="blue-label" for="clay-pot">Blue</label>
+              <label class="blue-label" for="blue-pot">Blue</label>
             </li>
-            <l class="pink-pot--margin">
+            <li class="pink-pot--margin">
               <input type="radio" name="pot-color" id="pink-pot" class="pink-input" value="pink-pot" required />
-              <label class="pink-label" for="ceramic-pot">Pink</label>
-            </l>
+              <label class="pink-label" for="pink-pot">Pink</label>
+            </li>
           </div>
-          <div class="pot-container">
+          <div class="pot-container" id="color-options-2">
             <li>
               <input type="radio" name="pot-color" id="green-pot" class="green-input" value="green-pot" required />
-              <label class="green-label" for="ceramic-pot">Green</label>
+              <label class="green-label" for="green-pot">Green</label>
             </li>
             <li>
               <input type="radio" name="pot-color" id="purple-pot" value="purple-pot" required />
-              <label class="purple-label" for="ceramic-pot">Purple</label>
+              <label class="purple-label" for="purple-pot">Purple</label>
             </li>
           </div>
         </ul>

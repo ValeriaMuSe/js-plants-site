@@ -219,3 +219,10 @@ fieldset {
 .card-details--margin {
   margin-top: 5px;
 }
+
+.soil__image {
+  width: 155px;
+  position: absolute;
+  left: 125px;
+  top: 250px;
+}

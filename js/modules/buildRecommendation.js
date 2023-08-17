@@ -14,8 +14,6 @@ function getPlant(place, soilType, toxicPlant) {
   return plant;
 }
 
-
-
 function getExtrasImages(extras) {
   const extrasImages = [];
   const imagesMap = {

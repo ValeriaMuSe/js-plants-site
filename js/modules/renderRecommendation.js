@@ -1,17 +1,10 @@
-
-
-// function renderRecommendation(recommendation) {
-//   const recommendationDiv = document.querySelector('.plant-info');
-
-
 function renderRecommendation(recommendation) {
   const recommendationDiv = document.querySelector('.plant-info');
- 
+
   if (!recommendation || !recommendation.extrasImages) {
     recommendationDiv.innerHTML = '<p>No recommendation available.</p>';
     return;
   }
-
 
   recommendationDiv.innerHTML = `
     <div class="plant__title">
@@ -20,7 +13,7 @@ function renderRecommendation(recommendation) {
     </div>
     <img class="plant__image" src="${recommendation.image}" alt="" />
     <img class="plant__image image__position" src="${recommendation.potImage}" alt="" />
-    <img class="soil__image" src="${recommendation.soilImage}" alt="" />
+    <img class="soil__image" src="" alt="" />
     ${recommendation.extrasImages
       .map((image) => `<img class="extra__image ${image.className}" src="${image.src}" alt="" />`)
       .join('')}
@@ -34,8 +27,15 @@ function renderRecommendation(recommendation) {
     <a href="../../customize-plant.html" id="customize-btn" class="get-btn customize-btn">Customize!</a>
   `;
 
-}
+  const sunlightValue = document.querySelector('input[name="soilType"]:checked').value;
+  const soilImage = document.querySelector('.soil__image');
 
+  if (sunlightValue === 'soil-composted') {
+    soilImage.src = "../../images/soil-composted.png";
+  } else if (sunlightValue === 'soil-fertilized') {
+    soilImage.src = "../../images/soil-fertilized.png";
+  }
+}
 
 function clearRecommendation() {
   const recommendationDiv = document.querySelector('.plant-info');
