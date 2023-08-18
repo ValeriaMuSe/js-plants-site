@@ -1,4 +1,4 @@
-import { Publisher } from '../publisher.js';
+import Observer from '../publisher.js';
 
 const potMaterialInput = document.querySelector('input[name="pot-material"]');
 const potDecorationInput = document.querySelector('input[name="pot-decoration"]');
@@ -6,7 +6,7 @@ const potColorToggleInput = document.querySelector('input[name="pots-color"]');
 const plantSelect = document.querySelector('.dropdown');
 const extrasCheckboxes = document.querySelectorAll('input[name="extras"]');
 
-const publisher = new Publisher();
+const observer = new Observer();
 
 potMaterialInput.addEventListener('change', () => {
     const formData = {
@@ -18,10 +18,8 @@ potMaterialInput.addEventListener('change', () => {
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.value)
     };
-    publisher.publish(formData);
+    observer.publish(formData);
 });
 
-// Repite el proceso para otros elementos del formulario
-// ...
+export default observer;
 
-export default publisher;

@@ -2,17 +2,32 @@ import renderRecommendationPage2 from './modules/renderPreviewPage2.js'
 
 renderRecommendationPage2()
 
-import { PreviewSubscriber, InfoSubscriber } from './publisher.js';
-import publisher from './modules/form-handler.js';
+import observer from './modules/form-handler.js';
 
-// Obtén referencias a los elementos del preview y de la información de la orden
-const previewImage = document.querySelector('.preview-image'); // Cambia esto por el selector correcto
-const plantInfoElement = document.querySelector('.plant-info'); // Cambia esto por el selector correcto
+class PreviewSubscriber {
+    constructor(elementToUpdate) {
+        this.element = elementToUpdate;
+    }
 
-// Crea instancias del patrón Observer
-const previewSubscriber = new PreviewSubscriber(previewImage);
-const infoSubscriber = new InfoSubscriber(plantInfoElement);
+    update(data) {
+        // Actualiza la previsualización de la planta usando los datos proporcionados
+        // Puedes manipular la imagen, el título, etc., dentro de este método
+    }
+}
 
-// Suscribe los elementos del preview y de la información de la orden al patrón Observer
-publisher.subscribe(previewSubscriber);
-publisher.subscribe(infoSubscriber);
+class InfoSubscriber {
+    constructor(elementToUpdate) {
+        this.element = elementToUpdate;
+    }
+
+    update(data) {
+        // Actualiza la información de la orden usando los datos proporcionados
+        // Puedes manipular el texto con los detalles de la orden dentro de este método
+    }
+}
+
+const previewSubscriber = new PreviewSubscriber(/* referencia al elemento */);
+const infoSubscriber = new InfoSubscriber(/* referencia al elemento */);
+
+observer.subscribe(previewSubscriber);
+observer.subscribe(infoSubscriber);
