@@ -1,5 +1,13 @@
-function renderRecommendationPage2(recommendation) {
+import { getRecommendation } from '../localStorage/storage.js';
+
+function renderRecommendationPage2() {
+  const recommendation = getRecommendation();
   const recommendationDiv = document.querySelector('.plant-info');
+
+  if (!recommendation || !recommendation.extrasImages) {
+    recommendationDiv.innerHTML = '<p>No recommendation available.</p>';
+    return;
+  }
 
   recommendationDiv.innerHTML = `
   <div class="plant__title">
@@ -19,14 +27,8 @@ function renderRecommendationPage2(recommendation) {
     <li>Color: ${recommendation.color}</li>
     <li>Extras: ${recommendation.extras.join(', ')}</li>
   </ul>
-  <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store avaibility</a>
+  <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
   `;
 }
 
-window.onload = function displayRecommendation() {
-  const recommendation = JSON.parse(localStorage.getItem('plantRecommendation'));
-
-  renderRecommendationPage2(recommendation);
-}
-
-export default renderRecommendationPage2
+export default renderRecommendationPage2;

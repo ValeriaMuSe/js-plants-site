@@ -1,5 +1,6 @@
 import PlantsBuilder from '../plantsBuilder.js';
 import plantsConfig from './config.js';
+import { storeRecommendation } from '../localStorage/storage.js';
 
 function getPlant(place, soilType, toxicPlant) {
   if (!plantsConfig[place]) {
@@ -69,7 +70,7 @@ function buildRecommendation(place, soilType, toxicPlant, water, style, extras, 
     recommendation.withCeramicMaterial();
   }
 
-  localStorage.setItem('plantRecommendation', JSON.stringify(recommendation));
+  storeRecommendation(recommendation);
 
   return recommendation;
 }
