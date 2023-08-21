@@ -9,17 +9,16 @@ const extrasCheckboxes = document.querySelectorAll('input[name="extras"]');
 const observer = new Observer();
 
 potMaterialInput.addEventListener('change', () => {
-    const formData = {
-        potMaterial: potMaterialInput.value,
-        potDecoration: potDecorationInput.value,
-        potColorToggle: potColorToggleInput.checked,
-        plant: plantSelect.value,
-        extras: Array.from(extrasCheckboxes)
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.value)
-    };
-    observer.publish(formData);
+  const formData = {
+    potMaterial: potMaterialInput.value,
+    potDecoration: potDecorationInput.value,
+    potColorToggle: potColorToggleInput.checked,
+    plant: plantSelect.value,
+    extras: Array.from(extrasCheckboxes)
+      .filter(checkbox => checkbox.checked)
+      .map(checkbox => checkbox.value)
+  };
+  observer.publish(formData);
 });
 
 export default observer;
-
