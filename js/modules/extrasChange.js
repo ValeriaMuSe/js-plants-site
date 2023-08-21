@@ -45,4 +45,3 @@ const extrasObserver = new ExtrasObserver();
 observer.subscribe(extrasObserver); // Subscribe the ExtrasObserver to the Observer
 
 export default observer;
-

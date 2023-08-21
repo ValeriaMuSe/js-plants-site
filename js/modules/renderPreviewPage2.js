@@ -1,5 +1,6 @@
-import observer from './extrasChange.js';
 import { getRecommendation } from '../localStorage/storage.js';
+import soilObserver from './soilImageChange.js';
+import extrasObserver from './extrasChange.js'; // Import the modified observer with a different name
 
 function renderRecommendationPage2() {
   const recommendation = getRecommendation();
@@ -17,7 +18,7 @@ function renderRecommendationPage2() {
     </div>
     <img class="plant__image" src="${recommendation.image}" alt="" />
     <img class="plant__image image__position" src="${recommendation.potImage}" alt="" />
-    <img class="soil__image" src="${recommendation.soilImage}" alt="" />
+    <div class="soil__image"></div>
     <div class="extras"></div>
     <ul class="plant__details">
       <li>Name: ${recommendation.name}</li>
@@ -29,7 +30,8 @@ function renderRecommendationPage2() {
     <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
   `;
 
-  observer.subscribe(observer); // Subscribe the ExtrasObserver to the Observer
+  soilObserver.subscribe('soilChange', soilObserver);
+  extrasObserver.subscribe('extrasChange', extrasObserver); // Subscribe the ExtrasObserver to the Observer
 }
 
 export default renderRecommendationPage2;
