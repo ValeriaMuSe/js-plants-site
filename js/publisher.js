@@ -1,19 +1,16 @@
-class Observer {
-  constructor() {
-    this.subscribers = [];
+
+class observer{
+  constructor(eventName) {
+    this.event = eventName;
   }
 
   subscribe(subscriber) {
-    this.subscribers.push(subscriber);
+    document.addEventListener(this.event, subscriber);
   }
 
-  publish(topic, data) {
-    this.subscribers.forEach(subscriber => {
-      if (typeof subscriber.update === 'function') {
-        subscriber.update(topic, data);
-      }
-    });
+  publish(data) {
+    document.dispatchEvent(new CustomEvent(this.event, { detail: data }))
   }
 }
 
-export default Observer;
+export { observer } 
