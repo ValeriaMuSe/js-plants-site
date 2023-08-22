@@ -13,4 +13,4 @@ class observer{
   }
 }
 
-export { observer } 
+export default observer
