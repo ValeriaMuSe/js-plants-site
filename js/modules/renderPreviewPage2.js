@@ -1,8 +1,8 @@
 
 
 import { getRecommendation } from '../localStorage/storage.js';
-import { potMaterialObserver } from './potMaterial.js';
-
+import { potMaterialObserver } from './potMaterial.js';  
+import { potDecorationObserver } from './potDecoration.js';
 
 function renderRecommendationPage2() {
   const recommendation = getRecommendation();
@@ -34,21 +34,25 @@ function renderRecommendationPage2() {
     <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
   `;
 
+
+  potDecorationObserver.subscribe((event) => {
+    const potImage = document.querySelector(".image__position");
+    potImage.src = event.detail;
+  });
+
   const selectedPotRadio = document.querySelector("[name='pot-material']:checked");
   const selectedPotMaterial = selectedPotRadio ? selectedPotRadio.value : null;
 
   if (selectedPotMaterial) {
-    // Cambiar la imagen de la maceta en función de la elección del usuario
+    
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/${selectedPotMaterial}.png`;
 
-
+   
     potMaterialObserver.publish(selectedPotMaterial);
   }
 }
 
 export default renderRecommendationPage2;
-
-
 
 
