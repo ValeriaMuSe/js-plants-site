@@ -1,5 +1,6 @@
 
-class observer{
+
+class Observer {
   constructor(eventName) {
     this.event = eventName;
   }
@@ -9,8 +10,8 @@ class observer{
   }
 
   publish(data) {
-    document.dispatchEvent(new CustomEvent(this.event, { detail: data }))
+    document.dispatchEvent(new CustomEvent(this.event, { detail: data }));
   }
 }
 
-export default observer
+export default Observer;

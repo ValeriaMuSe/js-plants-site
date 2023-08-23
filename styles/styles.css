@@ -182,15 +182,15 @@ fieldset {
   position: absolute;
   left: 112px;
   bottom: 198px;
-  z-index: -1;
+
 } 
 
 .extra-pebbles {
   position: absolute;
-  bottom: 138px;
-  left: 73px;
-  width: 210px;
-  z-index: -1;
+  bottom: 153px;
+  left: 71px;
+  width: 214px;
+
 }
 
 .extra-mini-plants {
