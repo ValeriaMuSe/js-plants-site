@@ -4,7 +4,9 @@ import { potDecorationObserver } from './potDecoration.js';
 import { potColorObserver } from './potColor.js';
 import { extrasObserver, setupExtrasLogic } from './extrasChange.js';
 import { plantImageObserver } from './imageChange.js';
+import Observer from '../observer.js'; 
 
+export const potColorNameObserver = new Observer('potColorNameChange');
 
 function renderRecommendationPage2() {
   const recommendation = getRecommendation();
@@ -32,7 +34,7 @@ function renderRecommendationPage2() {
       <li>Name: ${recommendation.name}</li>
       <li>Soil: ${recommendation.soil}</li>
       <li>Pot: ${recommendation.pot}</li>
-      <li>Color: ${recommendation.color}</li>
+      <li id="changeNamecolor">Color: ${recommendation.color}</li>
       <li>Extras: ${recommendation.extras.join(', ')}</li>
     </ul>
     <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
@@ -43,16 +45,20 @@ function renderRecommendationPage2() {
     potImage.src = event.detail;
   });
 
-
   potMaterialObserver.subscribe((event) => {
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/${event.detail}.png`;
   });
 
-
   potColorObserver.subscribe((event) => {
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/pots/${event.detail.potImage}`;
+  
+
+    const colorNameElement = document.getElementById('changeNamecolor');
+    
+  
+    colorNameElement.textContent = `Color: ${event.detail.color}`; 
   });
 
   const selectedPotRadio = document.querySelector("[name='pot-material']:checked");
@@ -61,7 +67,6 @@ function renderRecommendationPage2() {
   if (selectedPotMaterial) {
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/${selectedPotMaterial}.png`;
-
 
     potMaterialObserver.publish(selectedPotMaterial);
   }
@@ -73,12 +78,9 @@ function renderRecommendationPage2() {
   });
 
   plantImageObserver.subscribe(event => {
-    const plantImage = document.getElementById('plantImage'); 
+    const plantImage = document.getElementById('plantImage');
     plantImage.src = event.detail;
   });
 }
 
 export default renderRecommendationPage2;
-
-
-
