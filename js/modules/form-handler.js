@@ -1,4 +1,4 @@
-import Observer from '../publisher.js';
+import Observer from '../observer.js';
 
 const potMaterialInput = document.querySelector('input[name="pot-material"]');
 const potDecorationInput = document.querySelector('input[name="pot-decoration"]');

@@ -180,17 +180,17 @@ fieldset {
 
 .extra-moss-pole {
   position: absolute;
-  left: 112px;
-  bottom: 198px;
-
+  left: 115px;
+  bottom: 185px;
+  z-index: -1;
 } 
 
 .extra-pebbles {
   position: absolute;
-  bottom: 153px;
+  bottom: 135px;
   left: 71px;
   width: 214px;
-
+  z-index: -1;
 }
 
 .extra-mini-plants {
