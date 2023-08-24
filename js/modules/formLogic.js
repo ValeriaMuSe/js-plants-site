@@ -14,7 +14,7 @@ const initializeFormLogic = () => {
     const stylePot = document.querySelector('input[name="stylePot"]:checked').value;
     const extras = Array.from(document.querySelectorAll('input[name="extras"]:checked')).map(input => input.value);
 
-    // Capture the soilImage value based on the selected soilType
+ 
     let soilImageSrc;
     if (soilType === 'soil-composted') {
       soilImageSrc = "../../images/soil-composted.png";

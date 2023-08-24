@@ -3,6 +3,8 @@ import { potMaterialObserver } from './potMaterial.js';
 import { potDecorationObserver } from './potDecoration.js';
 import { potColorObserver } from './potColor.js';
 import { extrasObserver, setupExtrasLogic } from './extrasChange.js';
+import { plantImageObserver } from './imageChange.js';
+
 
 function renderRecommendationPage2() {
   const recommendation = getRecommendation();
@@ -22,7 +24,7 @@ function renderRecommendationPage2() {
       <p>Preview</p>
       <h2>${recommendation.name}</h2>
     </div>
-    <img class="plant__image" src="${recommendation.image}" alt="" />
+    <img class="plant__image" id="plantImage" src="${recommendation.image}" alt="" />
     <img class="plant__image image__position" src="${recommendation.potImage}" alt="" />
     <img class="soil__image" src="${recommendation.soilImage}" alt="" />
     <div class="extras">${extrasImagesHtml}</div>
@@ -36,25 +38,21 @@ function renderRecommendationPage2() {
     <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
   `;
 
-  // Suscribirse al evento de cambio de decoración del tiesto
   potDecorationObserver.subscribe((event) => {
     const potImage = document.querySelector(".image__position");
     potImage.src = event.detail;
   });
 
-  // Suscribirse al evento de cambio de material del tiesto
+
   potMaterialObserver.subscribe((event) => {
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/${event.detail}.png`;
   });
 
-  // Suscribirse al evento de cambio de color de maceta
+
   potColorObserver.subscribe((event) => {
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/pots/${event.detail.potImage}`;
-
-    // Cambiar la imagen de decoración del tiesto aquí
-    // Por ejemplo: const potDecorationImage = event.detail.potDecorationImage;
   });
 
   const selectedPotRadio = document.querySelector("[name='pot-material']:checked");
@@ -64,7 +62,7 @@ function renderRecommendationPage2() {
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/${selectedPotMaterial}.png`;
 
-    // Publicar el evento de cambio de material del tiesto
+
     potMaterialObserver.publish(selectedPotMaterial);
   }
 
@@ -73,10 +71,14 @@ function renderRecommendationPage2() {
   extrasObserver.subscribe(extra => {
     recommendation.extras.push(extra);
   });
+
+  plantImageObserver.subscribe(event => {
+    const plantImage = document.getElementById('plantImage'); 
+    plantImage.src = event.detail;
+  });
 }
 
 export default renderRecommendationPage2;
-
 
 
 
