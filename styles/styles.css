@@ -228,3 +228,11 @@ fieldset {
   left: 125px;
   top: 250px;
 }
+
+.color-options {
+  display: none;
+}
+
+.color-select {
+  margin-bottom: 25px;
+}
