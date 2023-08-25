@@ -17,10 +17,10 @@ class PlantsBuilder {
     return this;
   }
 
-  withSoilImage(value) {
-    this.soilImage = value;
+  withSoilImages(soilImages) {
+    this.soilImages = soilImages;
     return this;
-  }
+  }  
 
   withCeramicMaterial() {
     this.pot = 'ceramic';

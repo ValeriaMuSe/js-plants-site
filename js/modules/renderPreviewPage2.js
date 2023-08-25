@@ -3,6 +3,7 @@ import { potMaterialObserver } from './potMaterial.js';
 import { potDecorationObserver } from './potDecoration.js';
 import { potColorObserver } from './potColor.js';
 import { extrasObserver, setupExtrasLogic } from './extrasChange.js';
+import { soilObserver, setupSoilLogic } from './soilChange.js';
 import { plantImageObserver } from './imageChange.js';
 import Observer from '../observer.js'; 
 
@@ -21,6 +22,15 @@ function renderRecommendationPage2() {
     .map(image => `<img class="${image.className}" src="${image.src}" alt="" />`)
     .join('');
 
+    let soilImagesHtml = '';
+    if (Array.isArray(recommendation.soilImages)) {
+      soilImagesHtml = recommendation.soilImages
+        .map(image => `<img class="${image.className}" src="${image.src}" alt="" />`)
+        .join('');
+    } else {
+      soilImagesHtml = ''; // Handle the case where soilImages is not an array
+    }
+
   recommendationDiv.innerHTML = `
     <div class="plant__title">
       <p>Preview</p>
@@ -28,7 +38,7 @@ function renderRecommendationPage2() {
     </div>
     <img class="plant__image" id="plantImage" src="${recommendation.image}" alt="" />
     <img class="plant__image image__position" src="${recommendation.potImage}" alt="" />
-    <img class="soil__image" src="${recommendation.soilImage}" alt="" />
+    <div class="soil">${soilImagesHtml}</div>
     <div class="extras">${extrasImagesHtml}</div>
     <ul class="plant__details">
       <li>Name: ${recommendation.name}</li>
@@ -81,6 +91,13 @@ function renderRecommendationPage2() {
     const plantImage = document.getElementById('plantImage');
     plantImage.src = event.detail;
   });
+
+  setupSoilLogic();
+
+  soilObserver.subscribe(soil => {
+    recommendation.soils.push(soil);
+  });
+
 }
 
 export default renderRecommendationPage2;

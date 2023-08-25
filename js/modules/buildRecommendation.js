@@ -43,7 +43,7 @@ function getExtrasImages(extras) {
   return extrasImages;
 }
 
-function buildRecommendation(place, soilType, toxicPlant, water, style, extras, soilImage) {
+function buildRecommendation(place, soilType, toxicPlant, water, style, extras, soilImages) {
   const plant = getPlant(place, soilType, toxicPlant, );
 
   if (!plant) {
@@ -62,7 +62,7 @@ function buildRecommendation(place, soilType, toxicPlant, water, style, extras, 
   .withPotStyle(style)
   .withExtras(extras)
   .withExtrasImages(extraImages)
-  .withSoilImage(soilImage);
+  .withSoilImages(soilImages);
 
   if (water === 'Overwater') {
     recommendation.withClayMaterial(); 
