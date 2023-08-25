@@ -49,7 +49,7 @@ function renderRecommendationPage2() {
       <li id="changeNamecolor">Color: ${recommendation.color}</li>
       <li id="extras-summary">${extrasSummaryHtml}</li>
     </ul>
-    <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
+    <a href="../../store.html" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
   `;
 
   potDecorationObserver.subscribe((event) => {
