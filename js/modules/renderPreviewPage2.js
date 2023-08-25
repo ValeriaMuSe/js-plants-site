@@ -44,7 +44,7 @@ function renderRecommendationPage2() {
     <div class="extras">${extrasImagesHtml}</div>
     <ul class="plant__details">
       <li>Name: ${recommendation.name}</li>
-      <li>Soil: ${recommendation.soil}</li>
+      <li id="soil-summary">Soil: ${recommendation.soil}</li>
       <li>Pot: ${recommendation.pot}</li>
       <li id="changeNamecolor">Color: ${recommendation.color}</li>
       <li id="extras-summary">${extrasSummaryHtml}</li>
@@ -95,7 +95,8 @@ function renderRecommendationPage2() {
   setupSoilLogic();
 
   soilObserver.subscribe(soil => {
-    recommendation.soils.push(soil);
+    recommendation.soil = soil;
+    updateSoilSummary(); // Actualiza el resumen del tipo de suelo
   });
 }
 
