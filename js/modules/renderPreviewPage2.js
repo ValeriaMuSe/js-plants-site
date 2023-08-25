@@ -18,18 +18,20 @@ function renderRecommendationPage2() {
     return;
   }
 
+  const extrasSummaryHtml = 'Extras: ' + (recommendation.extras.length > 0 ? recommendation.extras.join(', ') : '');
+
   const extrasImagesHtml = recommendation.extrasImages
     .map(image => `<img class="${image.className}" src="${image.src}" alt="" />`)
     .join('');
 
-    let soilImagesHtml = '';
-    if (Array.isArray(recommendation.soilImages)) {
-      soilImagesHtml = recommendation.soilImages
-        .map(image => `<img class="${image.className}" src="${image.src}" alt="" />`)
-        .join('');
-    } else {
-      soilImagesHtml = ''; // Handle the case where soilImages is not an array
-    }
+  let soilImagesHtml = '';
+  if (Array.isArray(recommendation.soilImages)) {
+    soilImagesHtml = recommendation.soilImages
+      .map(image => `<img class="${image.className}" src="${image.src}" alt="" />`)
+      .join('');
+  } else {
+    soilImagesHtml = ''; // Handle the case where soilImages is not an array
+  }
 
   recommendationDiv.innerHTML = `
     <div class="plant__title">
@@ -45,7 +47,7 @@ function renderRecommendationPage2() {
       <li>Soil: ${recommendation.soil}</li>
       <li>Pot: ${recommendation.pot}</li>
       <li id="changeNamecolor">Color: ${recommendation.color}</li>
-      <li>Extras: ${recommendation.extras.join(', ')}</li>
+      <li id="extras-summary">${extrasSummaryHtml}</li>
     </ul>
     <a href="" id="customize-btn" class="get-btn avaibility-btn">Check store availability</a>
   `;
@@ -63,12 +65,9 @@ function renderRecommendationPage2() {
   potColorObserver.subscribe((event) => {
     const potImage = document.querySelector(".image__position");
     potImage.src = `../../images/pots/${event.detail.potImage}`;
-  
 
     const colorNameElement = document.getElementById('changeNamecolor');
-    
-  
-    colorNameElement.textContent = `Color: ${event.detail.color}`; 
+    colorNameElement.textContent = `Color: ${event.detail.color}`;
   });
 
   const selectedPotRadio = document.querySelector("[name='pot-material']:checked");
@@ -85,6 +84,7 @@ function renderRecommendationPage2() {
 
   extrasObserver.subscribe(extra => {
     recommendation.extras.push(extra);
+    updateExtrasSummary(); // Actualiza el resumen de extras
   });
 
   plantImageObserver.subscribe(event => {
@@ -97,7 +97,6 @@ function renderRecommendationPage2() {
   soilObserver.subscribe(soil => {
     recommendation.soils.push(soil);
   });
-
 }
 
 export default renderRecommendationPage2;
