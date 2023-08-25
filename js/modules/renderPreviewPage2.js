@@ -1,4 +1,4 @@
-import { getRecommendation } from '../localStorage/storage.js';
+import { getRecommendation, storeRecommendation } from '../localStorage/storage.js';
 import { potMaterialObserver } from './potMaterial.js';  
 import { potDecorationObserver } from './potDecoration.js';
 import { potColorObserver } from './potColor.js';
@@ -32,6 +32,8 @@ function renderRecommendationPage2() {
   } else {
     soilImagesHtml = ''; // Handle the case where soilImages is not an array
   }
+
+  storeRecommendation(recommendation);
 
   recommendationDiv.innerHTML = `
     <div class="plant__title">
