@@ -1,6 +1,5 @@
 import { getRecommendation } from './localStorage/storage.js';
 
-// Función para renderizar la recomendación almacenada en el localStorage
 function renderStoredRecommendation() {
   const recommendation = getRecommendation();
   const recommendationDiv = document.querySelector('.plant-info');
@@ -22,7 +21,7 @@ function renderStoredRecommendation() {
       .map(image => `<img class="${image.className}" src="${image.src}" alt="" />`)
       .join('');
   } else {
-    soilImagesHtml = ''; // Handle the case where soilImages is not an array
+    soilImagesHtml = '';
   }
 
   recommendationDiv.innerHTML = `

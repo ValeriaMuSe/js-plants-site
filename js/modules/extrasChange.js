@@ -5,13 +5,11 @@ const extrasObserver = new Observer();
 function setupExtrasLogic() {
   const extrasCheckboxes = document.querySelectorAll('input[name="extras"]');
   const extrasDiv = document.querySelector('.extras');
-  const extrasSummaryElement = document.getElementById('extras-summary'); // Elemento donde mostrarás el resumen de extras
+  const extrasSummaryElement = document.getElementById('extras-summary');
 
-  // Array para almacenar las extras seleccionadas
   const selectedExtras = [];
 
   function updateExtrasSummary() {
-    // Construye el contenido del resumen de extras
     const extrasSummary = `Extras: ${selectedExtras.join(', ')}`;
     extrasSummaryElement.textContent = extrasSummary;
   }
@@ -47,23 +45,21 @@ function setupExtrasLogic() {
         const imageSrc = getExtraImage(extra);
         const imageClassName = `extra__image extra-${extra}`;
 
-        removeImageFromExtrasDiv(imageClassName); // remove existing image with the same className
+        removeImageFromExtrasDiv(imageClassName);
         addImageToExtrasDiv(imageSrc, imageClassName);
-        
-        // Agrega la extra seleccionada al array
+
         selectedExtras.push(extra);
       } else {
         const extraIndex = selectedExtras.indexOf(checkbox.value);
         if (extraIndex !== -1) {
-          selectedExtras.splice(extraIndex, 1); // Elimina la extra deseleccionada del array
+          selectedExtras.splice(extraIndex, 1);
         }
       }
       
-      updateExtrasSummary(); // Actualiza el resumen de extras
+      updateExtrasSummary();
     });
   });
 
-  // Suscripción al Observer para manejar extras seleccionadas desde otras partes del código si es necesario
   extrasObserver.subscribe(extra => {
     if (extra) {
       selectedExtras.push(extra);

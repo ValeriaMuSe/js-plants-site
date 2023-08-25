@@ -5,7 +5,7 @@ const soilObserver = new Observer();
 function setupSoilLogic() {
   const soilRadios = document.querySelectorAll('input[name="soil"]');
   const soilDiv = document.querySelector('.soil');
-  const soilSummaryElement = document.getElementById('soil-summary'); // Elemento donde mostrarás el resumen del tipo de suelo
+  const soilSummaryElement = document.getElementById('soil-summary');
 
   function getSoilImage(soil) {
     const imagesMap = {
@@ -31,7 +31,6 @@ function setupSoilLogic() {
   }
 
   function updateSoilSummary(soil) {
-    // Actualiza el contenido del resumen del tipo de suelo
     soilSummaryElement.textContent = `Soil: ${soil}`;
   }
 
@@ -46,7 +45,7 @@ function setupSoilLogic() {
         removeImageFromSoilDiv(imageClassName);
         addImageToSoilDiv(imageSrc, imageClassName);
 
-        updateSoilSummary(soil); // Actualiza el resumen del tipo de suelo
+        updateSoilSummary(soil);
       }
     });
   });
@@ -56,9 +55,9 @@ function setupSoilLogic() {
       const imageSrc = getSoilImage(soil);
       const imageClassName = `soil__image soil-${soil}`;
 
-      removeImageFromSoilDiv(imageClassName); // Remove existing image with the same className from the soil div
+      removeImageFromSoilDiv(imageClassName);
       addImageToSoilDiv(imageSrc, imageClassName);
-      updateSoilSummary(soil); // Actualiza el resumen del tipo de suelo
+      updateSoilSummary(soil);
     }
   });
 }

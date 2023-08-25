@@ -30,7 +30,7 @@ function renderRecommendationPage2() {
       .map(image => `<img class="${image.className}" src="${image.src}" alt="" />`)
       .join('');
   } else {
-    soilImagesHtml = ''; // Handle the case where soilImages is not an array
+    soilImagesHtml = '';
   }
 
   storeRecommendation(recommendation);
@@ -86,7 +86,7 @@ function renderRecommendationPage2() {
 
   extrasObserver.subscribe(extra => {
     recommendation.extras.push(extra);
-    updateExtrasSummary(); // Actualiza el resumen de extras
+    updateExtrasSummary();
   });
 
   plantImageObserver.subscribe(event => {
@@ -98,7 +98,7 @@ function renderRecommendationPage2() {
 
   soilObserver.subscribe(soil => {
     recommendation.soil = soil;
-    updateSoilSummary(); // Actualiza el resumen del tipo de suelo
+    updateSoilSummary();
   });
 }
 
